@@ -38,7 +38,7 @@ namespace Hike
 		protected void LateUpdate ()
 		{
 			Vector3 pos = transform.localPosition;
-			pos.x = (BlockIndex - Player.CurrentBlockIdx - Player.InBlockPosition) * 10;
+			pos.x = (BlockIndex - Player.CurrentBlockIdx - Player.InBlockPosition) * 4;
 			pos.y = 0f;
 			transform.localPosition = pos;
 		}

@@ -35,7 +35,7 @@ namespace Hike
 
 		protected void Update()
 		{
-			InBlockPosition += TrekDirection * CurrentSpeed * Time.deltaTime;
+			InBlockPosition += TrekDirection * CurrentSpeed * Timer.GameDeltaTime;
 
 			if (InBlockPosition > 1f)
 			{
@@ -50,11 +50,11 @@ namespace Hike
 
 			if (CurrentBlockIdx >= CurrentTrek.Blocks.Length)
 			{
-				gameManager.SelectPath(CurrentTrek.CrossroadB);
+				gameManager.SelectPath(CurrentTrek, CurrentTrek.CrossroadB);
 			}
 			else if (CurrentBlockIdx < 0)
 			{
-				gameManager.SelectPath(CurrentTrek.CrossroadA);
+				gameManager.SelectPath(CurrentTrek, CurrentTrek.CrossroadA);
 			}
 		}
 	}

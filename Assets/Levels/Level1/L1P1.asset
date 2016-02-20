@@ -19,7 +19,7 @@ MonoBehaviour:
     HumidityModifier: []
     SunModifier: []
   - Type: 2
-    Slope: 45
+    Slope: 30
     Windy: []
     TemperatureModifier: []
     HumidityModifier: []
