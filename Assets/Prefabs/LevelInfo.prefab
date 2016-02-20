@@ -25,6 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463350}
+  - 114: {fileID: 11466284}
   m_Layer: 0
   m_Name: LevelInfo
   m_TagString: Untagged
@@ -45,6 +46,18 @@ Transform:
   - {fileID: 22425370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11466284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1bbfd5dd6544f8997313cac1c4957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 11480344}
 --- !u!114 &11480344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -64,7 +77,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26e3e4a014fab4f8e882a9f502a688bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3051422bd22e4420fa3b8b702f9ebefb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

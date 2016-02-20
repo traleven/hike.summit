@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440814}
+  - 114: {fileID: 11421848}
   m_Layer: 0
   m_Name: LevelSelect
   m_TagString: Untagged
@@ -172,7 +173,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 26e3e4a014fab4f8e882a9f502a688bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71384fcd3742d4ecc9bd5067109106fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -221,6 +222,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11421848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1bbfd5dd6544f8997313cac1c4957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 11416998}
 --- !u!114 &11448186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,7 +313,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11476296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ShowWindow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: Hike.Window, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetLevel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3ad6e8a846f2f4d12b5f50e4e2a29197,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Hike.LevelInfo, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11464060
