@@ -27,6 +27,8 @@ namespace Hike
 		public IEnumerator ShowCoroutine()
 		{
 			yield return new WaitForSeconds(WindowManager.TransitionTime);
+
+			graphics.ForEach((g) => g.SetAllDirty());
 		}
 
 		public void Hide()
