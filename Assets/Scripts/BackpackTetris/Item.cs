@@ -15,6 +15,16 @@ public class Item : MonoBehaviour
 		return true;
 	}
 
+	public bool IsInside()
+	{        
+		foreach (Transform child in transform)
+		{
+			if (!Backpack.IsCompletelyInside(child.position))
+				return false;
+		}
+		return true;
+	}
+
 	public bool Move(Vector3 direction)
 	{
 		transform.position += direction;

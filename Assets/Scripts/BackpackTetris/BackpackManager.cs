@@ -33,7 +33,7 @@ public class BackpackManager : MonoBehaviour
 		case EMovementType.Down:
 			if(!currentShape.Move(Vector3.down))
 			{
-				if (!Backpack.IsCompletelyInside(currentShape.transform.position))
+				if (!currentShape.IsInside())
 					Backpack.HasExcessItems = true;
 
 				lastShape = currentShape;
@@ -53,7 +53,7 @@ public class BackpackManager : MonoBehaviour
 
 	public void HandleClick(GameObject hitGO)
 	{
-		if (lastShape != null && lastShape.gameObject == hitGO)
+		if (hitGO.GetComponent<Item>().IsInValidPosition())
 		{
 			GameObject.DestroyImmediate(lastShape.gameObject);
 			lastShape = null;
