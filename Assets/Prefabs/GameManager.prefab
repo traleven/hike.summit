@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f3a113705c04aeab931df284b199d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideView: {fileID: 0}
   player: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
