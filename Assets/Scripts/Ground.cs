@@ -14,7 +14,7 @@ namespace Hike
 
 		protected void Awake()
 		{
-			blocks = new TrekBlock[10];
+			blocks = new TrekBlock[11];
 			for (int i = 0, n = blocks.Length; i < n; ++i)
 			{
 				blocks[i] = Instantiate<TrekBlock>(block);

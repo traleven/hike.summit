@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 namespace Hike
 {
@@ -9,6 +10,7 @@ namespace Hike
 
 		[SerializeField] private GameObject sideView;
 		[SerializeField] private Player player;
+		[SerializeField] private UnityEngine.Events.UnityEvent OnGameOver;
 
 		public void SetLevel(LevelInfo level)
 		{
@@ -20,6 +22,7 @@ namespace Hike
 			player.Reset(currentLevel.EntryPoint);
 			player.enabled = true;
 			sideView.SetActive(true);
+			Timer.TimeMultiplier = 1f;
 		}
 
 		public void Resume()
@@ -30,6 +33,7 @@ namespace Hike
 		public void StopGame()
 		{
 			sideView.SetActive(false);
+			OnGameOver.Invoke();
 		}
 
 		public void Break()
@@ -37,9 +41,16 @@ namespace Hike
 			sideView.SetActive(false);
 		}
 
-		public void SelectPath(TrekInfo[] crossroad)
+		public void SelectPath(TrekInfo trek, TrekInfo[] crossroad)
 		{
 			player.enabled = false;
+			if (trek == currentLevel.ExitPoint && crossroad == trek.CrossroadB)
+				StopGame();
+		}
+
+		public void SetTimeMultiplier(float multiplier)
+		{
+			Timer.TimeMultiplier = multiplier;
 		}
 	}
 }
