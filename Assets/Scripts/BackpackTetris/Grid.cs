@@ -17,7 +17,7 @@ public class Grid : MonoBehaviour
 	public static bool IsInside(Vector2 position)
 	{
 		return (Mathf.RoundToInt(position.x) >= 0 && Mathf.RoundToInt(position.x) < width
-			&& Mathf.RoundToInt(position.y) >= 0 /*&& (int)position.y < height*/);
+			&& Mathf.RoundToInt(position.y) >= 0 && (int)position.y < height);
 	}
 
 	public static bool IsValidPosition(Vector2 position, Transform parentTransform)

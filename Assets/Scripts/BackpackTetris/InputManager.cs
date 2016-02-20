@@ -35,8 +35,8 @@ public class InputManager : MonoBehaviour
 			else
 				currentShape.transform.Rotate(0, 0, 90);
 		}
-		else if (Input.GetKeyDown(KeyCode.DownArrow) /*||
-			Time.time - lastFall >= 1f*/)
+		else if (Input.GetKeyDown(KeyCode.DownArrow) ||
+			Time.time - lastFall >= 1f)
 		{
 			currentShape.transform.position += Vector3.down;
 			if (currentShape.IsInValidPosition()) 

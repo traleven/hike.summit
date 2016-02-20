@@ -5,29 +5,31 @@ namespace Hike
 {
 	public class WindowManager : MonoBehaviour
 	{
-		[SerializeField] private GameObject mainMenu;
-		[SerializeField] private GameObject levelSelect;
-		[SerializeField] private GameObject levelInfo;
-		[SerializeField] private GameObject prepare;
-		[SerializeField] private GameObject gameplay;
-		[SerializeField] private GameObject result;
+		[SerializeField] private Window mainMenu;
+		[SerializeField] private Window levelSelect;
+		[SerializeField] private Window levelInfo;
+		[SerializeField] private Window prepare;
+		[SerializeField] private Window gameplay;
+		[SerializeField] private Window result;
 
-		private GameObject currentWindow;
+		private Window currentWindow;
+
+		public static readonly float TransitionTime = 0.3f;
 
 		protected void Awake()
 		{
 			ShowWindow(mainMenu);
 		}
 
-		public void ShowWindow(GameObject window)
+		public void ShowWindow(Window window)
 		{
 			if (null != currentWindow)
 			{
-				currentWindow.SetActive(false);
+				currentWindow.Hide();
 			}
 			if (null != window)
 			{
-				window.SetActive(true);
+				window.Show();
 				currentWindow = window;
 			}
 		}
