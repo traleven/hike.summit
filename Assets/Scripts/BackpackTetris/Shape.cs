@@ -14,4 +14,28 @@ public class Shape : MonoBehaviour
 		}
 		return true;
 	}
+
+	public bool Move(Vector3 direction)
+	{
+		transform.position += direction;
+		if (IsInValidPosition())
+		{
+			Grid.UpdateCells(this);
+			return true;
+		}
+		else
+		{
+			transform.position -= direction;
+			return false;
+		}
+	}
+
+	public void Rotate()
+	{
+		transform.Rotate(0, 0, -90);
+		if (IsInValidPosition())
+			Grid.UpdateCells(this);
+		else
+			transform.Rotate(0, 0, 90);
+	}
 }

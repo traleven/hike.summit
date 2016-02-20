@@ -5,7 +5,7 @@ public class InputManager : MonoBehaviour
 {
 	public Shape currentShape = null;
 
-	float lastFall = 0;
+	float lastMovementUpdate = 0;
 	void Update()
 	{
 		// for test sake
@@ -20,41 +20,22 @@ public class InputManager : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			currentShape.transform.position += Vector3.left;
-			if (currentShape.IsInValidPosition())
-				Grid.UpdateCells(currentShape);
-			else
-				currentShape.transform.position -= Vector3.left;
+			currentShape.Move(Vector3.left);
 		}
 		else if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			currentShape.transform.position += Vector3.right;
-			if (currentShape.IsInValidPosition())
-				Grid.UpdateCells(currentShape);
-			else
-				currentShape.transform.position -= Vector3.right;
+			currentShape.Move(Vector3.right);
 		}
 		else if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
-			currentShape.transform.Rotate(0, 0, -90);
-			if (currentShape.IsInValidPosition())
-				Grid.UpdateCells(currentShape);
-			else
-				currentShape.transform.Rotate(0, 0, 90);
+			currentShape.Rotate();
 		}
 		else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-			Time.time - lastFall >= 1f)
+			Time.time - lastMovementUpdate >= 1f)
 		{
-			currentShape.transform.position += Vector3.down;
-			if (currentShape.IsInValidPosition()) 
-				Grid.UpdateCells(currentShape);
-			else
-			{
-				currentShape.transform.position -= Vector3.down;
+			if(!currentShape.Move(Vector3.down))
 				currentShape = null;
-			}
-
-			lastFall = Time.time;
+			lastMovementUpdate = Time.time;
 		}
 	}
 
