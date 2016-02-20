@@ -12,6 +12,7 @@ namespace Hike
 		[HideInInspector]
 		public TrekInfo[] CrossroadA;
 		public TrekInfo[] CrossroadB;
+		public Sprite[] GroundSprites;
 
 		protected void OnEnable()
 		{
@@ -21,6 +22,11 @@ namespace Hike
 				if (!other.CrossroadA.Contains(this))
 					other.CrossroadA = other.CrossroadA.Concat(new TrekInfo[] { this }).ToArray();
 			}
+		}
+
+		public Sprite GetGroundSprite(TerrainType type)
+		{
+			return GroundSprites[(int)type];
 		}
 
 		[Serializable]
@@ -42,6 +48,7 @@ namespace Hike
 
 		public enum TerrainType
 		{
+			Default,
 			Grass,
 			Ground,
 			SmallStones,

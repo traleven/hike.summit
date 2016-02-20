@@ -8,6 +8,17 @@ namespace Hike
 		public TrekInfo CurrentTrek;
 		public int TrekDirection;
 		public int CurrentBlockIdx;
+		public TrekInfo.Block CurrentBlock
+		{
+			get
+			{
+				if (CurrentBlockIdx < 0)
+					return CurrentTrek.Blocks[0];
+				if (CurrentBlockIdx >= CurrentTrek.Blocks.Length)
+					return CurrentTrek.Blocks[CurrentTrek.Blocks.Length - 1];
+				return CurrentTrek.Blocks[CurrentBlockIdx];
+			}
+		}
 		public float InBlockPosition;
 
 		public float CurrentSpeed;
