@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shape : MonoBehaviour
+public class Item : MonoBehaviour
 {
 	public IEnumerable CellBlocks { get { return transform; } }
 
@@ -9,7 +9,7 @@ public class Shape : MonoBehaviour
 	{        
 		foreach (Transform child in transform)
 		{
-			if (!Grid.IsValidPosition(child.position, this.transform))
+			if (!Backpack.IsValidPosition(child.position, this.transform))
 				return false;
 		}
 		return true;
@@ -20,7 +20,7 @@ public class Shape : MonoBehaviour
 		transform.position += direction;
 		if (IsInValidPosition())
 		{
-			Grid.UpdateCells(this);
+			Backpack.UpdateCells(this);
 			return true;
 		}
 		else
@@ -34,7 +34,7 @@ public class Shape : MonoBehaviour
 	{
 		transform.Rotate(0, 0, -90);
 		if (IsInValidPosition())
-			Grid.UpdateCells(this);
+			Backpack.UpdateCells(this);
 		else
 			transform.Rotate(0, 0, 90);
 	}

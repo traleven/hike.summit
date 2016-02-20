@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Grid : MonoBehaviour
+public class Backpack : MonoBehaviour
 {
 	public struct Coordinate
 	{
@@ -45,7 +45,7 @@ public class Grid : MonoBehaviour
 	{
 		Coordinate coord = ConvertPositionToCoordinate(position);
 
-		if (!Grid.IsInside(coord))
+		if (!Backpack.IsInside(coord))
 			return false;
 
 		if (coord.y >= height)
@@ -57,7 +57,7 @@ public class Grid : MonoBehaviour
 		return true;
 	}
 
-	public static void UpdateCells(Shape shape)
+	public static void UpdateCells(Item shape)
 	{
 		for (int y = 0; y < height; ++y)
 		{

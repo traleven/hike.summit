@@ -3,19 +3,17 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
-	public Shape currentShape = null;
+	public Item currentShape = null;
 	public float FallingSpeed = 0.8f;
 
 	float lastMovementUpdate = 0;
 	void Update()
 	{
-		// for test sake
 		if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
 		{
 			HandleClick();
 		}
-
-
+			
 		if (currentShape == null)
 			return;
 		
@@ -35,12 +33,13 @@ public class InputManager : MonoBehaviour
 			Time.time - lastMovementUpdate >= FallingSpeed)
 		{
 			if(!currentShape.Move(Vector3.down))
+			{
 				currentShape = null;
+			}
 			lastMovementUpdate = Time.time;
 		}
 	}
 
-	// for test sake
 	protected void HandleClick()
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -49,10 +48,10 @@ public class InputManager : MonoBehaviour
 		if (hit.collider != null)
 		{
 			GameObject hitGO = hit.collider.gameObject;
-			if (null != hitGO && null != hitGO.GetComponent<Shape>() && currentShape == null)
+			if (null != hitGO && null != hitGO.GetComponent<Item>() && currentShape == null)
 			{
-				currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Shape>();
-				currentShape.transform.position = Grid.GetStartPosition();
+				currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Item>();
+				currentShape.transform.position = Backpack.GetStartPosition();
 			}
 		}
 	}
