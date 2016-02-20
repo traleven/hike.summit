@@ -6,19 +6,26 @@ namespace Hike
 {
 	public class Window : MonoBehaviour
 	{
+		[SerializeField] private Sprite Background = null;
+		private BackgroundManager bgManager;
+
 		private Graphic[] graphics;
 
 		protected void Awake()
 		{
 			graphics = GetComponentsInChildren<Graphic>(true);
+			bgManager = FindObjectOfType<BackgroundManager>();
 		}
 
 		public void Show()
 		{
 			if (null == graphics)
 				graphics = GetComponentsInChildren<Graphic>(true);
+			if (null == bgManager)
+				bgManager = FindObjectOfType<BackgroundManager>();
 
 			graphics.ForEach((g) => g.canvasRenderer.SetAlpha(0f));
+			bgManager.SetBackground(Background);
 
 			gameObject.SetActive(true);
 
