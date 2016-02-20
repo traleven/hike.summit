@@ -4,6 +4,7 @@ using System.Collections;
 public class InputManager : MonoBehaviour
 {
 	public Shape currentShape = null;
+	public float FallingSpeed = 0.8f;
 
 	float lastMovementUpdate = 0;
 	void Update()
@@ -31,7 +32,7 @@ public class InputManager : MonoBehaviour
 			currentShape.Rotate();
 		}
 		else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-			Time.time - lastMovementUpdate >= 1f)
+			Time.time - lastMovementUpdate >= FallingSpeed)
 		{
 			if(!currentShape.Move(Vector3.down))
 				currentShape = null;
