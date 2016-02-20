@@ -3,21 +3,13 @@ using System.Collections;
 
 public class Shape : MonoBehaviour
 {
-	private Cell[] cellBlocks;
-	public Cell[] CellBlocks { get { return cellBlocks; } }
+	public IEnumerable CellBlocks { get { return transform; } }
 
-	void Start()
-	{
-		cellBlocks = GetComponentsInChildren<Cell>();
-	}
-	
 	public bool IsInValidPosition()
 	{        
-		foreach (Cell child in cellBlocks)
+		foreach (Transform child in transform)
 		{
-			Debug.Log("Child: " + child.name + " position: " + child.transform.position);
-
-			if (!Grid.IsValidPosition(child.transform.position, this.transform))
+			if (!Grid.IsValidPosition(child.position, this.transform))
 				return false;
 		}
 		return true;
