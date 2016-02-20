@@ -33,16 +33,24 @@ public class Grid : MonoBehaviour
 	public static bool IsInside(Coordinate coord)
 	{
 		return (coord.x >= 0 && coord.x < width
-			&& coord.y >= 0 && coord.y < height);
+			&& coord.y >= 0);
 	}
 
-	public static bool IsValidPosition(Vector2 position, Transform parentTransform)
+	public static bool IsCompletelyInside(Coordinate coord)
+	{
+		return IsInside(coord) && coord.y < height;
+	}
+
+	public static bool IsValidPosition(Vector3 position, Transform parentTransform)
 	{
 		Coordinate coord = ConvertPositionToCoordinate(position);
 
 		if (!Grid.IsInside(coord))
 			return false;
 
+		if (coord.y >= height)
+			return true;
+		
 		if (cells[coord.x, coord.y] != null 
 			&& cells[coord.x, coord.y].parent != parentTransform)
 			return false;
@@ -63,7 +71,13 @@ public class Grid : MonoBehaviour
 		foreach (Transform child in shape.CellBlocks)
 		{
 			Coordinate coord = ConvertPositionToCoordinate(child.position);
-			cells[coord.x, coord.y] = child;
+			if (IsCompletelyInside(coord))
+				cells[coord.x, coord.y] = child;
 		}     
+	}
+
+	public static Vector2 GetStartPosition()
+	{
+		return new Vector2(Random.Range(0, width - 1), height);
 	}
 }

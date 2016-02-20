@@ -8,6 +8,13 @@ public class InputManager : MonoBehaviour
 	float lastFall = 0;
 	void Update()
 	{
+		// for test sake
+		if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
+		{
+			HandleClick();
+		}
+
+
 		if (currentShape == null)
 			return;
 		
@@ -48,6 +55,23 @@ public class InputManager : MonoBehaviour
 			}
 
 			lastFall = Time.time;
+		}
+	}
+
+	// for test sake
+	protected void HandleClick()
+	{
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity, 1 << LayerMask.NameToLayer("Selectable"));
+
+		if (hit.collider != null)
+		{
+			GameObject hitGO = hit.collider.gameObject;
+			if (null != hitGO && null != hitGO.GetComponent<Shape>() && currentShape == null)
+			{
+				currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Shape>();
+				currentShape.transform.position = Grid.GetStartPosition();
+			}
 		}
 	}
 }
