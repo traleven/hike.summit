@@ -7,9 +7,22 @@ namespace Hike
 	{
 		private LevelInfo currentLevel;
 
+		[SerializeField] private Player player;
+
 		public void SetLevel(LevelInfo level)
 		{
 			currentLevel = level;
+		}
+
+		public void StartNewGame()
+		{
+			player.Reset(currentLevel.EntryPoint);
+			player.enabled = true;
+		}
+
+		public void SelectPath(TrekInfo[] crossroad)
+		{
+			player.enabled = false;
 		}
 	}
 }
