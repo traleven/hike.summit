@@ -5,13 +5,17 @@ public class BackpackItem : MonoBehaviour
 {
 	public ItemInfo Info;
 
-	private ItemShape shape;
+	private ItemShape shape = null;
 
 	void Start()
 	{
-		shape = (Object.Instantiate(Info.Shape) as GameObject).GetComponent<ItemShape>();
-		shape.transform.parent = this.transform;
-		shape.transform.localPosition = Vector3.zero;
+		shape = GetComponentInChildren<ItemShape>();
+		if (shape == null)
+		{
+			shape = (Object.Instantiate(Info.Shape) as GameObject).GetComponent<ItemShape>();
+			shape.transform.parent = this.transform;
+			shape.transform.localPosition = Vector3.zero;
+		}
 	}
 
 	public bool Move(Vector3 direction)
