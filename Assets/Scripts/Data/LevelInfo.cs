@@ -9,6 +9,7 @@ namespace Hike
 		public string Name;
 		public TrekInfo EntryPoint;
 		public TrekInfo ExitPoint;
+		public WeatherInfo Weather;
 
 		[SerializeField] private Sprite[] defaultGroundSprites = null;
 		[SerializeField] private Sprite[] grassGroundSprites = null;

@@ -8,6 +8,7 @@ namespace Hike
 	[CreateAssetMenu]
 	public class TrekInfo : ScriptableObject
 	{
+		public Sprite Background;
 		public BlocksContainer Blocks;
 
 		public Sprite CrossroadASprite;

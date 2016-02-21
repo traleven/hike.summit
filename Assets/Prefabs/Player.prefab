@@ -48,6 +48,7 @@ MonoBehaviour:
   CurrentSpeed: 0.1
   gameManager: {fileID: 0}
   spriteRenderer: {fileID: 21273818}
+  gameplayWindow: {fileID: 0}
 --- !u!212 &21273818
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -26,6 +26,7 @@ namespace Hike
 
 		[SerializeField] private GameManager gameManager = null;
 		[SerializeField] private SpriteRenderer spriteRenderer = null;
+		[SerializeField] private Window gameplayWindow = null;
 
 		public void Reset(TrekInfo entryPoint)
 		{
@@ -38,6 +39,8 @@ namespace Hike
 			TrekDirection = direction;
 			CurrentBlockIdx = direction > 0 ? 0 : CurrentTrek.Blocks.Length - 1;
 			InBlockPosition = 0.5f;
+
+			gameplayWindow.Background = trek.Background;
 		}
 
 		protected void Update()
