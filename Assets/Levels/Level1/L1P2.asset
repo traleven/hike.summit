@@ -12,36 +12,35 @@ MonoBehaviour:
   m_Name: L1P2
   m_EditorClassIdentifier: 
   Blocks:
-  - Type: 0
-    Slope: 0
-    Windy: []
-    TemperatureModifier: []
-    HumidityModifier: []
-    SunModifier: []
-  - Type: 0
-    Slope: 0
-    Windy: []
-    TemperatureModifier: []
-    HumidityModifier: []
-    SunModifier: []
-  - Type: 0
-    Slope: 0
-    Windy: []
-    TemperatureModifier: []
-    HumidityModifier: []
-    SunModifier: []
-  - Type: 0
-    Slope: 0
-    Windy: []
-    TemperatureModifier: []
-    HumidityModifier: []
-    SunModifier: []
-  - Type: 0
-    Slope: 0
-    Windy: []
-    TemperatureModifier: []
-    HumidityModifier: []
-    SunModifier: []
+    blocks:
+    - Length: 5
+      Type: 5
+      Slope: -45
+      Windy: []
+      TemperatureModifier: []
+      HumidityModifier: []
+      SunModifier: []
+    - Length: 3
+      Type: 2
+      Slope: -15
+      Windy: []
+      TemperatureModifier: []
+      HumidityModifier: []
+      SunModifier: []
+    - Length: 2
+      Type: 1
+      Slope: -5
+      Windy: []
+      TemperatureModifier: []
+      HumidityModifier: []
+      SunModifier: []
+    - Length: 2
+      Type: 1
+      Slope: 0
+      Windy: []
+      TemperatureModifier: []
+      HumidityModifier: []
+      SunModifier: []
   CrossroadA:
   - {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
   CrossroadB: []

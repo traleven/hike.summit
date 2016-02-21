@@ -8,7 +8,7 @@ namespace Hike
 	[CreateAssetMenu]
 	public class TrekInfo : ScriptableObject
 	{
-		public Block[] Blocks;
+		public BlocksContainer Blocks;
 		[HideInInspector]
 		public TrekInfo[] CrossroadA;
 		public TrekInfo[] CrossroadB;
@@ -32,6 +32,7 @@ namespace Hike
 		[Serializable]
 		public class Block
 		{
+			public int Length = 1;
 			public TerrainType Type;
 			public float Slope;
 

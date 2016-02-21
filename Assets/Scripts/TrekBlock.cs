@@ -17,16 +17,8 @@ namespace Hike
 			set
 			{
 				blockIndex = value;
-				if (blockIndex > 0 && blockIndex < Player.CurrentTrek.Blocks.Length)
-				{
-					block = Player.CurrentTrek.Blocks [value];
-					spriteRenderer.sprite = Player.CurrentTrek.GetGroundSprite( block.Type );
-				}
-				else
-				{
-					block = null;
-					spriteRenderer.sprite = Player.CurrentTrek.GetGroundSprite( TrekInfo.TerrainType.Default );
-				}
+				block = Player.CurrentTrek.Blocks [value];
+				spriteRenderer.sprite = Player.CurrentTrek.GetGroundSprite( block.Type );
 			}
 		}
 
