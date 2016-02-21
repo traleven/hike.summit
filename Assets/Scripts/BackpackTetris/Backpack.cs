@@ -88,7 +88,7 @@ public class Backpack : MonoBehaviour
 		return false;
 	}
 
-	public static void UpdateCells(Item shape)
+	public static void UpdateCells(ItemShape shape)
 	{
 		for (int y = 0; y < height; ++y)
 		{

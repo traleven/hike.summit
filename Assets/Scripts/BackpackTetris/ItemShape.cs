@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour
+public class ItemShape : MonoBehaviour
 {
 	public IEnumerable CellBlocks { get { return transform; } }
 
@@ -29,29 +29,5 @@ public class Item : MonoBehaviour
 				return false;
 		}
 		return true;
-	}
-
-	public bool Move(Vector3 direction)
-	{
-		transform.position += direction;
-		if (IsValidPosition())
-		{
-			Backpack.UpdateCells(this);
-			return true;
-		}
-		else
-		{
-			transform.position -= direction;
-			return false;
-		}
-	}
-
-	public void Rotate()
-	{
-		transform.Rotate(0, 0, -90);
-		if (IsValidPosition())
-			Backpack.UpdateCells(this);
-		else
-			transform.Rotate(0, 0, 90);
 	}
 }

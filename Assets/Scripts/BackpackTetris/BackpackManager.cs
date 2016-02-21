@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class BackpackManager : MonoBehaviour
 {
-	private Item currentShape = null;
-	private LinkedList<Item> items = new LinkedList<Item>();
+	private BackpackItem currentItem = null;
+	private LinkedList<BackpackItem> items = new LinkedList<BackpackItem>();
 
 	public enum EMovementType
 	{
@@ -17,32 +17,32 @@ public class BackpackManager : MonoBehaviour
 
 	public void Move(EMovementType type)
 	{
-		if (currentShape == null || Backpack.HasExcessItems)
+		if (currentItem == null || Backpack.HasExcessItems)
 			return;
 
 		switch(type)
 		{
 		case EMovementType.Left:
-			currentShape.Move(Vector3.left);
+			currentItem.Move(Vector3.left);
 			break;
 
 		case EMovementType.Right:
-			currentShape.Move(Vector3.right);
+			currentItem.Move(Vector3.right);
 			break;
 
 		case EMovementType.Down:
-			if(!currentShape.Move(Vector3.down))
+			if(!currentItem.Move(Vector3.down))
 			{
-				if (!currentShape.IsInside())
+				if (!currentItem.IsInside())
 					Backpack.HasExcessItems = true;
 
-				items.AddLast(currentShape);
-				currentShape = null;
+				items.AddLast(currentItem);
+				currentItem = null;
 			}
 			break;
 
 		case EMovementType.Rotate:
-			currentShape.Rotate();
+			currentItem.Rotate();
 			break;
 
 		default:
@@ -53,7 +53,7 @@ public class BackpackManager : MonoBehaviour
 
 	public void HandleClick(GameObject hitGO)
 	{
-		Item hitItem = hitGO.GetComponent<Item>();
+		BackpackItem hitItem = hitGO.GetComponentInParent<BackpackItem>();
 		if (hitItem == null)
 			return;
 
@@ -62,11 +62,10 @@ public class BackpackManager : MonoBehaviour
 			items.Remove(hitItem);
 			GameObject.DestroyImmediate(hitItem.gameObject);
 		}
-		else if (!Backpack.HasExcessItems && !hitItem.IsInside() && currentShape == null)
+		else if (!Backpack.HasExcessItems && !hitItem.IsInside() && currentItem == null)
 		{
-			currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Item>();
-			currentShape.transform.position = Backpack.GetStartPosition();
+			currentItem = (Object.Instantiate(hitItem.gameObject) as GameObject).GetComponent<BackpackItem>();
+			currentItem.transform.position = Backpack.GetStartPosition();
 		}
 	}
-
 }
