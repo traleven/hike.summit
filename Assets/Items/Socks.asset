@@ -14,4 +14,5 @@ MonoBehaviour:
   Shape: {fileID: 183588, guid: 9c67d48ecf8ed4d01834fd3e74b6d369, type: 2}
   WeightKoeff: 0.5
   Weight: 3
-  Amount: 1
+  Amount: 100
+  Type: 0

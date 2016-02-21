@@ -1,0 +1,24 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BackpackUIManager : MonoBehaviour
+{
+	public System.Action ApplyButtonClicked;
+
+	private static BackpackUIManager instance;
+	public static BackpackUIManager Instance 
+	{ 
+		get 
+		{ 
+			if (null == instance) 
+				instance = FindObjectOfType<BackpackUIManager>(); 
+			return instance; 
+		} 
+	}
+
+	public void OnApplyButtonClicked()
+	{
+		if (null != ApplyButtonClicked)
+			ApplyButtonClicked();
+	}
+}
