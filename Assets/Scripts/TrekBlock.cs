@@ -5,6 +5,7 @@ namespace Hike
 {
 	public class TrekBlock : MonoBehaviour
 	{
+		public const float BlockWidth = 4;
 		public Player Player;
 
 		private SpriteRenderer spriteRenderer;
@@ -30,7 +31,7 @@ namespace Hike
 		protected void LateUpdate ()
 		{
 			Vector3 pos = transform.localPosition;
-			pos.x = (BlockIndex - Player.CurrentBlockIdx - Player.InBlockPosition) * 4;
+			pos.x = (BlockIndex - Player.CurrentBlockIdx - Player.InBlockPosition) * BlockWidth;
 			pos.y = 0f;
 			transform.localPosition = pos;
 		}

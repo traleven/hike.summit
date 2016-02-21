@@ -116,7 +116,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1317704951}
   m_Father: {fileID: 1051015513}
   m_RootOrder: 1
 --- !u!114 &78407687
@@ -974,6 +975,56 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 145a4adbb52ce423eaaf8fbe76108787, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1317704950
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 78407686}
+    m_Modifications:
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498184, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 658586361}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1317704951 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 487152, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+  m_PrefabInternal: {fileID: 1317704950}
 --- !u!224 &1347204522 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22448688, guid: 145a4adbb52ce423eaaf8fbe76108787,
@@ -997,10 +1048,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1972820608}
     m_Modifications:
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 22415170, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1085,26 +1132,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 432149625}
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 1957994596}
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ApplyTrek
-      objectReference: {fileID: 0}
-    - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Hike.Player, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 11412644, guid: ff06b3f526a2a4c338c2d06d70e2c7d4, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
