@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 403256}
   - 114: {fileID: 11413602}
   - 212: {fileID: 21273818}
+  - 114: {fileID: 11459670}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -48,6 +49,17 @@ MonoBehaviour:
   CurrentSpeed: 0.1
   gameManager: {fileID: 0}
   spriteRenderer: {fileID: 21273818}
+--- !u!114 &11459670
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089eade4dfc90fc4087834f9d28dfcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21273818
 SpriteRenderer:
   m_ObjectHideFlags: 1
