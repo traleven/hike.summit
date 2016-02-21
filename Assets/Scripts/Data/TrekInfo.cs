@@ -8,25 +8,25 @@ namespace Hike
 	[CreateAssetMenu]
 	public class TrekInfo : ScriptableObject
 	{
+		public Sprite Background;
 		public BlocksContainer Blocks;
-		[HideInInspector]
-		public TrekInfo[] CrossroadA;
-		public TrekInfo[] CrossroadB;
-		public Sprite[] GroundSprites;
+
+		public Sprite CrossroadASprite;
+		public Sprite CrossroadBSprite;
+
+		public Crossroad[] CrossroadA;
+		public Crossroad[] CrossroadB;
 
 		protected void OnEnable()
 		{
-			for (int i = 0, n = CrossroadB.Length; i < n; ++i)
-			{
-				TrekInfo other = CrossroadB[i];
-				if (!other.CrossroadA.Contains(this))
-					other.CrossroadA = other.CrossroadA.Concat(new TrekInfo[] { this }).ToArray();
-			}
 		}
 
-		public Sprite GetGroundSprite(TerrainType type)
+		[Serializable]
+		public class Crossroad
 		{
-			return GroundSprites[(int)type];
+			public TrekInfo Trek;
+			[Range(-1, 1)] public int Direction;
+			public string RouteName;
 		}
 
 		[Serializable]
@@ -37,6 +37,7 @@ namespace Hike
 			public float Slope;
 
 			public Vector2[] Windy = new Vector2[4];
+			[Multiline]
 			public float[] TemperatureModifier = new float[4];
 			public float[] HumidityModifier = new float[4];
 			public float[] SunModifier = new float[4];

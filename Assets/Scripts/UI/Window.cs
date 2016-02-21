@@ -7,7 +7,7 @@ namespace Hike
 {
 	public class Window : MonoBehaviour
 	{
-		[SerializeField] private Sprite Background = null;
+		[SerializeField] public Sprite Background = null;
 		private BackgroundManager bgManager;
 
 		private Graphic[] graphics;

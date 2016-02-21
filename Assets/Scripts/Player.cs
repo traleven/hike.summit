@@ -5,10 +5,11 @@ namespace Hike
 {
 	public class Player : MonoBehaviour
 	{
-		public TrekInfo CurrentTrek;
-		public int TrekDirection;
-		public int CurrentBlockIdx;
-		public TrekInfo.Block CurrentBlock
+		[HideInInspector] public LevelInfo CurrentLevel;
+		[HideInInspector] public TrekInfo CurrentTrek;
+		[HideInInspector] public int TrekDirection;
+		[HideInInspector] public int CurrentBlockIdx;
+		[HideInInspector] public TrekInfo.Block CurrentBlock
 		{
 			get
 			{
@@ -19,18 +20,18 @@ namespace Hike
 				return CurrentTrek.Blocks[CurrentBlockIdx];
 			}
 		}
-		public float InBlockPosition;
+		[HideInInspector] public float InBlockPosition;
 
 		public float CurrentSpeed;
 
-		[SerializeField] private GameManager gameManager;
+		[SerializeField] private GameManager gameManager = null;
+		[SerializeField] private SpriteRenderer spriteRenderer = null;
+		[SerializeField] private Window gameplayWindow = null;
+		[SerializeField] private StatsManager stats = null;
 
 		public void Reset(TrekInfo entryPoint)
 		{
-			CurrentTrek = entryPoint;
-			CurrentBlockIdx = 0;
-			TrekDirection = 1;
-			InBlockPosition = 0.5f;
+			GoTo(entryPoint, 1);
 		}
 
 		public void GoTo(TrekInfo trek, int direction)
@@ -39,10 +40,13 @@ namespace Hike
 			TrekDirection = direction;
 			CurrentBlockIdx = direction > 0 ? 0 : CurrentTrek.Blocks.Length - 1;
 			InBlockPosition = 0.5f;
+
+			gameplayWindow.Background = trek.Background;
 		}
 
 		protected void Update()
 		{
+			spriteRenderer.flipX = TrekDirection < 0;
 			InBlockPosition += TrekDirection * CurrentSpeed * Timer.GameDeltaTime;
 
 			if (InBlockPosition > 1f)
@@ -63,6 +67,10 @@ namespace Hike
 			else if (CurrentBlockIdx < 0)
 			{
 				gameManager.SelectPath(CurrentTrek, CurrentTrek.CrossroadA);
+			}
+			else
+			{
+				stats.TickWalking(Timer.GameDeltaTime);
 			}
 		}
 	}
