@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 namespace Hike
 {
-	[SerializeField]
+	[Serializable]
 	public class PlayerStatistic
 	{
 		[SerializeField] public float MinValue = 0f;
 		[SerializeField] public float MaxValue = 1f;
 
-		private float currentValue = 0f;
-		[SerializeField] private Slider progressBar;
+		[SerializeField] private float currentValue = 0f;
+		[SerializeField] public ValueUpdateEvent OnValueChanged = new ValueUpdateEvent();
 
 		public float Value
 		{
@@ -22,7 +23,7 @@ namespace Hike
 				if (value != currentValue)
 				{
 					currentValue = value;
-					UpdateHud();
+					OnValueChanged.Invoke(this);
 				}
 			}
 		}
@@ -31,14 +32,14 @@ namespace Hike
 			get { return (currentValue - MinValue) / (MaxValue - MinValue); }
 		}
 
-		public virtual void UpdateHud ()
-		{
-			progressBar.normalizedValue = NormalizedValue;
-		}
-
 		public static implicit operator float (PlayerStatistic stat)
 		{
 			return stat.Value;
+		}
+
+		[Serializable]
+		public class ValueUpdateEvent : UnityEngine.Events.UnityEvent<PlayerStatistic>
+		{
 		}
 	}
 }

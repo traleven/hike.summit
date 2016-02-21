@@ -69,6 +69,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 21273818}
   gameplayWindow: {fileID: 0}
   stats: {fileID: 11459670}
+  hud: {fileID: 0}
 --- !u!114 &11459670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,6 +81,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089eade4dfc90fc4087834f9d28dfcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stamina:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  fillFood:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  fillWater:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  painBody:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  painFeet:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  wetnessBody:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  wetnessFeet:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  playerTemperature:
+    MinValue: -100
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!212 &21273818
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -20,6 +20,7 @@ namespace Hike
 			get { return stamina; }
 			set { stamina.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnStaminaChanged { get { return stamina.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic fillFood = new PlayerStatistic() { MaxValue = vitalsMax };
 		public float FillFood
@@ -27,6 +28,7 @@ namespace Hike
 			get { return fillFood; }
 			set { fillFood.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnFillFoodChanged { get { return fillFood.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic fillWater = new PlayerStatistic() { MaxValue = vitalsMax };
 		public float FillWater
@@ -34,6 +36,7 @@ namespace Hike
 			get { return fillWater; }
 			set { fillWater.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnFillWaterChanged { get { return fillWater.OnValueChanged; } }
 
 		#endregion
 
@@ -45,6 +48,7 @@ namespace Hike
 			get { return painBody; }
 			set { painBody.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnPainBodyChanged { get { return painBody.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic painFeet = new PlayerStatistic() { MaxValue = conditionsMax };
 		public float PainFeet
@@ -52,6 +56,7 @@ namespace Hike
 			get { return painFeet; }
 			set { painFeet.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnPainFeetChanged { get { return painFeet.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic wetnessBody = new PlayerStatistic() { MaxValue = conditionsMax };
 		public float WetnessBody
@@ -59,6 +64,7 @@ namespace Hike
 			get { return wetnessBody; }
 			set { wetnessBody.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnWetnessBodyChanged { get { return wetnessBody.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic wetnessFeet = new PlayerStatistic() { MaxValue = conditionsMax };
 		public float WetnessFeet
@@ -66,6 +72,7 @@ namespace Hike
 			get { return wetnessFeet; }
 			set { wetnessFeet.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnWetnessFeetChanged { get { return wetnessFeet.OnValueChanged; } }
 
 		[SerializeField] private PlayerStatistic playerTemperature = new PlayerStatistic() { MaxValue = conditionsMax };
 		public float PlayerTemperature
@@ -73,6 +80,7 @@ namespace Hike
 			get { return playerTemperature; }
 			set { playerTemperature.Value = value; }
 		}
+		public PlayerStatistic.ValueUpdateEvent OnPlayerTemperatureChanged { get { return playerTemperature.OnValueChanged; } }
 
 		#endregion
 
@@ -133,18 +141,37 @@ namespace Hike
 
 		#endregion
 
-
 		public void Init ()
 		{
 		}
 
-		private void RecalculateDerivedStats ()
+		public void Reset()
 		{
-
+			Stamina = stamina.MaxValue;
+			FillFood = fillFood.MaxValue;
+			FillWater = fillWater.MaxValue;
 		}
 
-		public void TickWalking(float deltaTime)
+		private void RecalculateDerivedStats ()
 		{
+		}
+
+		public void TickWalking(float deltaTime, Player player)
+		{
+			float slope = player.CurrentBlock.Slope * player.TrekDirection;
+			slope = 0.0025f * slope * slope + 0.05f * slope + 1f;
+			Stamina -= 0.5f * slope * deltaTime;
+
+			float sqrtSlope = Mathf.Sqrt(slope);
+			FillFood -= 0.5f * sqrtSlope * deltaTime;
+			FillWater -= 0.5f * sqrtSlope * player.CurrentBlock.SunModifier * deltaTime;
+
+			player.CurrentSpeed = (0.75f * Mathf.Sqrt(Stamina / 100f)) / sqrtSlope;
+		}
+
+		public void TickCamping(float deltaTime, Player player)
+		{
+			Stamina += 0.5f * Mathf.Sqrt(FillFood) * Mathf.Sqrt(FillWater) * deltaTime;
 		}
 
 		public void UpdateStats ()

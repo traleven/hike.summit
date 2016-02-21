@@ -36,16 +36,10 @@ namespace Hike
 			public TerrainType Type;
 			public float Slope;
 
-			public Vector2[] Windy = new Vector2[4];
-			[Multiline]
-			public float[] TemperatureModifier = new float[4];
-			public float[] HumidityModifier = new float[4];
-			public float[] SunModifier = new float[4];
-
-			public override string ToString ()
-			{
-				return string.Format ("[Block]");
-			}
+			public float Windy = 0f;
+			public float TemperatureModifier = 1f;
+			public float HumidityModifier = 1f;
+			public float SunModifier = 1f;
 		}
 
 		public enum TerrainType

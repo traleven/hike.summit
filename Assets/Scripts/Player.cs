@@ -28,10 +28,13 @@ namespace Hike
 		[SerializeField] private SpriteRenderer spriteRenderer = null;
 		[SerializeField] private Window gameplayWindow = null;
 		[SerializeField] private StatsManager stats = null;
+		[SerializeField] private HUD hud;
 
 		public void Reset(TrekInfo entryPoint)
 		{
 			GoTo(entryPoint, 1);
+			stats.Reset();
+			hud.InitHUD(stats);
 		}
 
 		public void GoTo(TrekInfo trek, int direction)
@@ -70,7 +73,7 @@ namespace Hike
 			}
 			else
 			{
-				stats.TickWalking(Timer.GameDeltaTime);
+				stats.TickWalking(Timer.GameDeltaTime, this);
 			}
 		}
 	}

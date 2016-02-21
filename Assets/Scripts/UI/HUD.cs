@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Hike
 {
@@ -30,16 +31,23 @@ namespace Hike
         public Text lblPackWeight;
         public Text lblPackBalance;
 
+        private bool initialized = false;
         public void InitHUD(StatsManager sm)
         {
+        	if (initialized)
+        		return;
+
             sldStamina.minValue = 0f;
             sldStamina.maxValue = StatsManager.vitalsMax;
+			sm.OnStaminaChanged.AddListener((stat) => sldStamina.normalizedValue = stat.NormalizedValue);
 
             sldFood.minValue = 0f;
             sldFood.maxValue = StatsManager.vitalsMax;
+            sm.OnFillFoodChanged.AddListener((stat) => sldFood.normalizedValue = stat.NormalizedValue);
 
             sldThirst.minValue = 0f;
             sldThirst.maxValue = StatsManager.vitalsMax;
+            sm.OnFillWaterChanged.AddListener((stat) => sldThirst.normalizedValue = stat.NormalizedValue);
 
 
             sldPainBody.minValue = 0f;
@@ -56,8 +64,11 @@ namespace Hike
 
 
             sldTemperature.minValue = StatsManager.tempMin;
-            sldTemperature.maxValue = StatsManager.tempMin;
+            sldTemperature.maxValue = StatsManager.tempMax;
             sldTemperature.onValueChanged.AddListener((v) => lblTemperature.text = v.ToString("0.0") + " C");
+            sm.OnPlayerTemperatureChanged.AddListener((stat) => sldTemperature.normalizedValue = stat.NormalizedValue);
+
+            initialized = true;
         }
 
         public void UpdateStatsHud(StatsManager sm)
