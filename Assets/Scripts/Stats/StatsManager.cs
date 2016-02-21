@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 namespace Hike
 {
@@ -12,13 +13,23 @@ namespace Hike
 		public const float tempMin = -50f;
 		public const float tempMax = 70f;
 
+		[SerializeField] private UnityEvent OnStatOut = new UnityEvent();
+
+		[SerializeField] private PlayerStatistic time = new PlayerStatistic() { MaxValue = 100f };
+		public float Time
+		{
+			get { return time; }
+			set { time.Value = value; if (value > time.MaxValue) OnStatOut.Invoke(); }
+		}
+		public PlayerStatistic.ValueUpdateEvent OnTimeChanged { get { return time.OnValueChanged; } }
+
 		#region VITALS
 
 		[SerializeField] private PlayerStatistic stamina = new PlayerStatistic() { MaxValue = vitalsMax };
 		public float Stamina
 		{
 			get { return stamina; }
-			set { stamina.Value = value; }
+			set { stamina.Value = value; if (value < 0f) OnStatOut.Invoke(); }
 		}
 		public PlayerStatistic.ValueUpdateEvent OnStaminaChanged { get { return stamina.OnValueChanged; } }
 
@@ -26,7 +37,7 @@ namespace Hike
 		public float FillFood
 		{
 			get { return fillFood; }
-			set { fillFood.Value = value; }
+			set { fillFood.Value = value; if (value < 0f) OnStatOut.Invoke(); }
 		}
 		public PlayerStatistic.ValueUpdateEvent OnFillFoodChanged { get { return fillFood.OnValueChanged; } }
 
@@ -34,7 +45,7 @@ namespace Hike
 		public float FillWater
 		{
 			get { return fillWater; }
-			set { fillWater.Value = value; }
+			set { fillWater.Value = value; if (value < 0f) OnStatOut.Invoke(); }
 		}
 		public PlayerStatistic.ValueUpdateEvent OnFillWaterChanged { get { return fillWater.OnValueChanged; } }
 
@@ -46,7 +57,7 @@ namespace Hike
 		public float PainBody
 		{
 			get { return painBody; }
-			set { painBody.Value = value; }
+			set { painBody.Value = value; if (value < 0f) OnStatOut.Invoke(); }
 		}
 		public PlayerStatistic.ValueUpdateEvent OnPainBodyChanged { get { return painBody.OnValueChanged; } }
 
@@ -54,7 +65,7 @@ namespace Hike
 		public float PainFeet
 		{
 			get { return painFeet; }
-			set { painFeet.Value = value; }
+			set { painFeet.Value = value; if (value < 0f) OnStatOut.Invoke(); }
 		}
 		public PlayerStatistic.ValueUpdateEvent OnPainFeetChanged { get { return painFeet.OnValueChanged; } }
 
@@ -158,6 +169,8 @@ namespace Hike
 
 		public void TickWalking(float deltaTime, Player player)
 		{
+			Time += deltaTime;
+
 			float slope = player.CurrentBlock.Slope * player.TrekDirection;
 			slope = 0.0025f * slope * slope + 0.05f * slope + 1f;
 			Stamina -= 0.5f * slope * deltaTime;
@@ -171,6 +184,7 @@ namespace Hike
 
 		public void TickCamping(float deltaTime, Player player)
 		{
+			Time += deltaTime;
 			Stamina += 0.5f * Mathf.Sqrt(FillFood) * Mathf.Sqrt(FillWater) * deltaTime;
 		}
 

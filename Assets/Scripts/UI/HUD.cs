@@ -10,6 +10,8 @@ namespace Hike
         private static HUD instance;
         public static HUD Instance { get { if (null == instance) instance = FindObjectOfType<HUD>(); return instance; } }
 
+        public Slider sldTime;
+
         public Slider sldStamina;
         public Slider sldFood;
         public Slider sldThirst;
@@ -36,6 +38,10 @@ namespace Hike
         {
         	if (initialized)
         		return;
+
+        	sldTime.minValue = 0f;
+        	sldTime.maxValue = 100f;
+        	sm.OnTimeChanged.AddListener((stat) => sldTime.normalizedValue = stat.NormalizedValue);
 
             sldStamina.minValue = 0f;
             sldStamina.maxValue = StatsManager.vitalsMax;
@@ -73,6 +79,8 @@ namespace Hike
 
         public void UpdateStatsHud(StatsManager sm)
         {
+        	sldTime.value = sm.Time;
+
             sldStamina.value = sm.Stamina;
             sldFood.value = sm.FillFood;
             sldThirst.value = sm.FillWater;

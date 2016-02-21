@@ -241,6 +241,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1051015513}
     m_Modifications:
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 403256, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -288,6 +292,26 @@ Prefab:
     - target: {fileID: 146818, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
       propertyPath: m_Name
       value: PlayerTrekker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 432149625}
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 11459670, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
+      propertyPath: OnStatOut.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}

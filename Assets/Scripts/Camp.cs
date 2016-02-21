@@ -10,7 +10,7 @@ namespace Hike
 
 		protected void Update ()
 		{
-			stats.TickCamping(Timer.GameDeltaTime, player);
+			stats.TickCamping(Timer.GameDeltaTime / 4f, player);
 		}
 	}
 }
