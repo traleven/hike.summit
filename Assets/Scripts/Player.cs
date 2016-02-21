@@ -5,11 +5,11 @@ namespace Hike
 {
 	public class Player : MonoBehaviour
 	{
-		public LevelInfo CurrentLevel;
-		public TrekInfo CurrentTrek;
-		public int TrekDirection;
-		public int CurrentBlockIdx;
-		public TrekInfo.Block CurrentBlock
+		[HideInInspector] public LevelInfo CurrentLevel;
+		[HideInInspector] public TrekInfo CurrentTrek;
+		[HideInInspector] public int TrekDirection;
+		[HideInInspector] public int CurrentBlockIdx;
+		[HideInInspector] public TrekInfo.Block CurrentBlock
 		{
 			get
 			{
@@ -20,7 +20,7 @@ namespace Hike
 				return CurrentTrek.Blocks[CurrentBlockIdx];
 			}
 		}
-		public float InBlockPosition;
+		[HideInInspector] public float InBlockPosition;
 
 		public float CurrentSpeed;
 

@@ -5,7 +5,7 @@ namespace Hike
 {
 	public class TrekBlock : MonoBehaviour
 	{
-		public const float BlockWidth = 4;
+		public const float BlockWidth = 8;
 		public Player Player;
 
 		private SpriteRenderer spriteRenderer;
