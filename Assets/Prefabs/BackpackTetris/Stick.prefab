@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 183588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb11f8afc4c6473caccff288169c95e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f83e6793fa3e409386b79bb7b6f2c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21211664
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5019608, a: 0.5}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21220446
@@ -227,7 +227,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5019608, a: 0.5}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21284112
@@ -257,7 +257,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5019608, a: 0.5}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &21289088
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.5019608, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.5019608, a: 0.5}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -320,6 +320,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

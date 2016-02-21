@@ -47,7 +47,7 @@ public class InputManager : MonoBehaviour
 		if (hit.collider != null)
 		{
 			GameObject hitGO = hit.collider.gameObject;
-			if (null != hitGO && null != hitGO.GetComponent<Item>())
+			if (null != hitGO && null != hitGO.GetComponent<ItemShape>())
 			{
 				backpackManager.HandleClick(hitGO);
 			}
