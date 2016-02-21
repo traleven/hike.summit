@@ -33,6 +33,14 @@ namespace Hike
 			InBlockPosition = 0.5f;
 		}
 
+		public void GoTo(TrekInfo trek, int direction)
+		{
+			CurrentTrek = trek;
+			TrekDirection = direction;
+			CurrentBlockIdx = direction > 0 ? 0 : CurrentTrek.Blocks.Length - 1;
+			InBlockPosition = 0.5f;
+		}
+
 		protected void Update()
 		{
 			InBlockPosition += TrekDirection * CurrentSpeed * Timer.GameDeltaTime;

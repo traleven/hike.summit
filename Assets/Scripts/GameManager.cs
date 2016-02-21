@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using System;
 
 namespace Hike
 {
@@ -10,7 +11,8 @@ namespace Hike
 
 		[SerializeField] private GameObject sideView;
 		[SerializeField] private Player player;
-		[SerializeField] private UnityEngine.Events.UnityEvent OnGameOver;
+		[SerializeField] private CrossroadEvent OnCrossroad;
+		[SerializeField] private UnityEvent OnGameOver;
 
 		public void SetLevel(LevelInfo level)
 		{
@@ -43,14 +45,21 @@ namespace Hike
 
 		public void SelectPath(TrekInfo trek, TrekInfo[] crossroad)
 		{
-			player.enabled = false;
 			if (trek == currentLevel.ExitPoint && crossroad == trek.CrossroadB)
 				StopGame();
+			else
+				OnCrossroad.Invoke(crossroad);
 		}
 
 		public void SetTimeMultiplier(float multiplier)
 		{
 			Timer.TimeMultiplier = multiplier;
 		}
+
+	}
+
+	[Serializable]
+	public class CrossroadEvent : UnityEvent<TrekInfo[]>
+	{
 	}
 }

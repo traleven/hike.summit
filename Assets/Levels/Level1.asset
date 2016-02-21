@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level 1
   EntryPoint: {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
-  ExitPoint: {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
+  ExitPoint: {fileID: 11400000, guid: 3c92e0221207745efa45e8496adc3dea, type: 2}

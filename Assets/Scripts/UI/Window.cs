@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Linq;
 
 namespace Hike
 {
@@ -10,6 +11,7 @@ namespace Hike
 		private BackgroundManager bgManager;
 
 		private Graphic[] graphics;
+		private Selectable[] selectables;
 
 		protected void Awake()
 		{
@@ -24,30 +26,31 @@ namespace Hike
 			if (null == bgManager)
 				bgManager = FindObjectOfType<BackgroundManager>();
 
-			graphics.ForEach((g) => g.canvasRenderer.SetAlpha(0f));
+			//graphics.ForEach((g) => g.canvasRenderer.SetAlpha(0f));
 			bgManager.SetBackground(Background);
 
 			gameObject.SetActive(true);
 
-			graphics.ForEach((g) => g.CrossFadeAlpha(1f, WindowManager.TransitionTime, true));
+			//graphics.ForEach((g) => g.CrossFadeAlpha(1f, WindowManager.TransitionTime, true));
 		}
 		public IEnumerator ShowCoroutine()
 		{
 			yield return new WaitForSeconds(WindowManager.TransitionTime);
 
-			graphics.ForEach((g) => g.SetAllDirty());
+			//graphics.ForEach((g) => g.SetAllDirty());
 		}
 
 		public void Hide()
 		{
-			graphics.ForEach((g) => g.CrossFadeAlpha(0f, WindowManager.TransitionTime, true));
+			//graphics.ForEach((g) => g.CrossFadeAlpha(0f, WindowManager.TransitionTime, true));
 			StartCoroutine(HideCoroutine());
 		}
 
 		private IEnumerator HideCoroutine()
 		{
-			yield return new WaitForSeconds(WindowManager.TransitionTime);
+			//yield return new WaitForSeconds(WindowManager.TransitionTime);
 			gameObject.SetActive(false);
+			yield return null;
 		}
 	}
 }

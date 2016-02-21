@@ -6,11 +6,6 @@ namespace Hike
 	public class WindowManager : MonoBehaviour
 	{
 		[SerializeField] private Window mainMenu;
-		[SerializeField] private Window levelSelect;
-		[SerializeField] private Window levelInfo;
-		[SerializeField] private Window prepare;
-		[SerializeField] private Window gameplay;
-		[SerializeField] private Window result;
 
 		private Window currentWindow;
 
