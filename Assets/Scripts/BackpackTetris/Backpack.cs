@@ -76,6 +76,18 @@ public class Backpack : MonoBehaviour
 		return true;
 	}
 
+	public static bool HasItemAbove(int xLeft, int xRight, int yTop, Transform parentTransform)
+	{
+		for (int y = yTop + 1; y < height; y++)
+			for (int x = xLeft; x <= xRight; x++)
+			{
+				if (cells[x, y] != null && cells[x, y].parent != parentTransform)
+					return true;
+			}
+
+		return false;
+	}
+
 	public static void UpdateCells(Item shape)
 	{
 		for (int y = 0; y < height; ++y)

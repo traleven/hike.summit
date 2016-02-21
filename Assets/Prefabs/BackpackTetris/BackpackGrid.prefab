@@ -187,6 +187,7 @@ GameObject:
   - 114: {fileID: 11419040}
   - 212: {fileID: 21242370}
   - 114: {fileID: 11468442}
+  - 114: {fileID: 11439724}
   m_Layer: 0
   m_Name: BackpackGrid
   m_TagString: Untagged
@@ -621,6 +622,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4bcbe74303b436aaa0e0806199ecfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11439724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7617926acc62e4db3ad0ca521e901feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11468442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -632,7 +644,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51016bfaf4c74d819e6545be81f14ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentShape: {fileID: 0}
   FallingSpeed: 0.8
 --- !u!212 &21212292
 SpriteRenderer:

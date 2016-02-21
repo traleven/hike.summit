@@ -5,8 +5,8 @@ public class Item : MonoBehaviour
 {
 	public IEnumerable CellBlocks { get { return transform; } }
 
-	public bool IsInValidPosition()
-	{        
+	public bool IsValidPosition()
+	{
 		foreach (Transform child in transform)
 		{
 			if (!Backpack.IsValidPosition(child.position, this.transform))
@@ -15,8 +15,14 @@ public class Item : MonoBehaviour
 		return true;
 	}
 
+	public bool IsTopMost()
+	{
+		Bounds bounds = GetComponent<BoxCollider2D>().bounds;
+		return !Backpack.HasItemAbove(Mathf.CeilToInt(bounds.min.x), Mathf.FloorToInt(bounds.max.x), Mathf.FloorToInt(bounds.max.y), this.transform);
+	}
+
 	public bool IsInside()
-	{        
+	{
 		foreach (Transform child in transform)
 		{
 			if (!Backpack.IsCompletelyInside(child.position))
@@ -28,7 +34,7 @@ public class Item : MonoBehaviour
 	public bool Move(Vector3 direction)
 	{
 		transform.position += direction;
-		if (IsInValidPosition())
+		if (IsValidPosition())
 		{
 			Backpack.UpdateCells(this);
 			return true;
@@ -43,7 +49,7 @@ public class Item : MonoBehaviour
 	public void Rotate()
 	{
 		transform.Rotate(0, 0, -90);
-		if (IsInValidPosition())
+		if (IsValidPosition())
 			Backpack.UpdateCells(this);
 		else
 			transform.Rotate(0, 0, 90);
