@@ -393,10 +393,6 @@ Prefab:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 432149625}
-    - target: {fileID: 11413602, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 1179342709}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c439b8c469d89456b95ba7d20ea756a8, type: 2}
   m_IsPrefabParent: 0
@@ -980,11 +976,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 145a4adbb52ce423eaaf8fbe76108787, type: 2}
   m_IsPrefabParent: 0
---- !u!212 &1179342709 stripped
-SpriteRenderer:
-  m_PrefabParentObject: {fileID: 21273818, guid: c439b8c469d89456b95ba7d20ea756a8,
-    type: 2}
-  m_PrefabInternal: {fileID: 509644700}
 --- !u!1001 &1317704950
 Prefab:
   m_ObjectHideFlags: 0
@@ -1032,10 +1023,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 658586361}
-    - target: {fileID: 11498184, guid: 722c44749264f4e60824a3300a554a02, type: 2}
-      propertyPath: end
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 722c44749264f4e60824a3300a554a02, type: 2}
   m_IsPrefabParent: 0
@@ -1100,6 +1087,10 @@ Prefab:
     - target: {fileID: 152566, guid: 722c44749264f4e60824a3300a554a02, type: 2}
       propertyPath: m_Name
       value: CrossroadMarker (end)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498184, guid: 722c44749264f4e60824a3300a554a02, type: 2}
+      propertyPath: end
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 722c44749264f4e60824a3300a554a02, type: 2}

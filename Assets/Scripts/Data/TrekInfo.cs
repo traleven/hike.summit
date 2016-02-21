@@ -10,6 +10,9 @@ namespace Hike
 	{
 		public BlocksContainer Blocks;
 
+		public Sprite CrossroadASprite;
+		public Sprite CrossroadBSprite;
+
 		public Crossroad[] CrossroadA;
 		public Crossroad[] CrossroadB;
 
