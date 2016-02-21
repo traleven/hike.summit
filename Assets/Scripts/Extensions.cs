@@ -5,7 +5,7 @@ using System;
 
 namespace Hike
 {
-	public static class MonoBehaviourExtension
+	public static class LinqExtension
 	{
 		public static void ForEach<T> (this IEnumerable<T> source, Action<T> action)
 		{
