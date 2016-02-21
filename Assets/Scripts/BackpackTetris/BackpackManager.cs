@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class BackpackManager : MonoBehaviour
 {
 	private Item currentShape = null;
-	private Item lastShape = null;
+	private LinkedList<Item> items = new LinkedList<Item>();
 
 	public enum EMovementType
 	{
@@ -19,7 +19,7 @@ public class BackpackManager : MonoBehaviour
 	{
 		if (currentShape == null || Backpack.HasExcessItems)
 			return;
-		
+
 		switch(type)
 		{
 		case EMovementType.Left:
@@ -36,7 +36,7 @@ public class BackpackManager : MonoBehaviour
 				if (!currentShape.IsInside())
 					Backpack.HasExcessItems = true;
 
-				lastShape = currentShape;
+				items.AddLast(currentShape);
 				currentShape = null;
 			}
 			break;
@@ -53,13 +53,16 @@ public class BackpackManager : MonoBehaviour
 
 	public void HandleClick(GameObject hitGO)
 	{
-		if (hitGO.GetComponent<Item>().IsInValidPosition())
+		Item hitItem = hitGO.GetComponent<Item>();
+		if (hitItem == null)
+			return;
+
+		if (hitItem.IsInside() && hitItem.IsTopMost())
 		{
-			GameObject.DestroyImmediate(lastShape.gameObject);
-			lastShape = null;
-			Debug.Log("Destroy");
+			items.Remove(hitItem);
+			GameObject.DestroyImmediate(hitItem.gameObject);
 		}
-		else if (!Backpack.HasExcessItems)
+		else if (!Backpack.HasExcessItems && !hitItem.IsInside())
 		{
 			currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Item>();
 			currentShape.transform.position = Backpack.GetStartPosition();
