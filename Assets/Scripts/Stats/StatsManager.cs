@@ -161,6 +161,11 @@ namespace Hike
 			Stamina = stamina.MaxValue;
 			FillFood = fillFood.MaxValue;
 			FillWater = fillWater.MaxValue;
+
+			PainBody = painBody.MaxValue;
+			WetnessBody = wetnessBody.MinValue;
+			PainFeet = painFeet.MaxValue;
+			WetnessFeet = wetnessFeet.MinValue;
 		}
 
 		private void RecalculateDerivedStats ()
@@ -179,13 +184,24 @@ namespace Hike
 			FillFood -= 0.5f * sqrtSlope * deltaTime;
 			FillWater -= 0.5f * sqrtSlope * player.CurrentBlock.SunModifier * deltaTime;
 
-			player.CurrentSpeed = (0.75f * Mathf.Sqrt(Stamina / 100f)) / sqrtSlope;
+			WetnessFeet += 0.3f * (player.CurrentBlock.HumidityModifier - 0.5f) * deltaTime;
+			WetnessBody += PlayerTemperature / 10 * deltaTime;
+
+			PainFeet -= 0.1f * (Mathf.Sqrt(WetnessFeet) + 1f) * deltaTime;
+
+			player.CurrentSpeed = (0.75f * Mathf.Sqrt(Stamina / 100f) * Mathf.Sqrt(PainFeet / 100f)) / sqrtSlope;
 		}
 
 		public void TickCamping(float deltaTime, Player player)
 		{
 			Time += deltaTime;
 			Stamina += 0.5f * Mathf.Sqrt(FillFood) * Mathf.Sqrt(FillWater) * deltaTime;
+
+			FillFood -= 0.1f * deltaTime;
+			FillWater -= 0.1f * player.CurrentBlock.SunModifier * deltaTime;
+
+			WetnessFeet += 2 * 0.3f * (player.CurrentBlock.HumidityModifier - 1.2f) * deltaTime;
+			WetnessBody += PlayerTemperature / 10 * deltaTime;
 		}
 
 		public void UpdateStats ()

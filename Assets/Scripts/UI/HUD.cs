@@ -58,15 +58,19 @@ namespace Hike
 
             sldPainBody.minValue = 0f;
             sldPainBody.maxValue = StatsManager.conditionsMax;
+			sm.OnPainBodyChanged.AddListener((stat) => sldPainBody.normalizedValue = stat.NormalizedValue);
 
             sldPainFeet.minValue = 0f;
             sldPainFeet.maxValue = StatsManager.conditionsMax;
+			sm.OnPainFeetChanged.AddListener((stat) => sldPainFeet.normalizedValue = stat.NormalizedValue);
 
             sldWetBody.minValue = 0f;
             sldWetBody.maxValue = StatsManager.conditionsMax;
+			sm.OnWetnessBodyChanged.AddListener((stat) => sldWetBody.normalizedValue = stat.NormalizedValue);
 
             sldWetFeet.minValue = 0f;
             sldWetFeet.maxValue = StatsManager.conditionsMax;
+			sm.OnWetnessFeetChanged.AddListener((stat) => sldWetFeet.normalizedValue = stat.NormalizedValue);
 
 
             sldTemperature.minValue = StatsManager.tempMin;

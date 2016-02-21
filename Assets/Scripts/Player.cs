@@ -33,8 +33,9 @@ namespace Hike
 		public void Reset(TrekInfo entryPoint)
 		{
 			GoTo(entryPoint, 1);
-			stats.Reset();
 			hud.InitHUD(stats);
+			stats.Reset();
+			hud.UpdateStatsHud(stats);
 		}
 
 		public void GoTo(TrekInfo trek, int direction)
