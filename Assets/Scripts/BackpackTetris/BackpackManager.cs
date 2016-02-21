@@ -65,7 +65,16 @@ public class BackpackManager : MonoBehaviour
 
 		if (hitItem.IsInside() && hitItem.IsTopMost())
 		{
-			selectedItem = hitItem;
+			if (selectedItem != null)
+				selectedItem.transform.localScale /= 1.2f;
+
+			if (selectedItem == hitItem)
+				selectedItem = null;
+			else
+			{
+				selectedItem = hitItem;
+				selectedItem.transform.localScale *= 1.2f;
+			}
 		}
 		else if (!Backpack.HasExcessItems && !hitItem.IsInside() && currentFallingItem == null)
 		{
@@ -82,6 +91,7 @@ public class BackpackManager : MonoBehaviour
 		{
 			items.Remove(selectedItem);
 			GameObject.DestroyImmediate(selectedItem.gameObject);
+			selectedItem = null;
 		}
 	}
 }
