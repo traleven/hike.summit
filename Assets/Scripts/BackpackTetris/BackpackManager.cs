@@ -19,6 +19,7 @@ public class BackpackManager : MonoBehaviour
 	void Start()
 	{
 		BackpackUIManager.Instance.ApplyButtonClicked += OnApplyButtonClicked;
+		BackpackUIManager.Instance.RemoveButtonClicked += OnRemoveButtonClicked;
 	}
 
 	public void Move(EMovementType type)
@@ -85,10 +86,22 @@ public class BackpackManager : MonoBehaviour
 
 	private void OnApplyButtonClicked()
 	{
-		Debug.Log("Apply");
-
 		if (selectedItem != null)
 		{
+			//TODO if item applied it must affect some stats
+
+			items.Remove(selectedItem);
+			GameObject.DestroyImmediate(selectedItem.gameObject);
+			selectedItem = null;
+		}
+	}
+
+	private void OnRemoveButtonClicked()
+	{
+		if (selectedItem != null)
+		{
+			//TODO recalculate store items count
+
 			items.Remove(selectedItem);
 			GameObject.DestroyImmediate(selectedItem.gameObject);
 			selectedItem = null;

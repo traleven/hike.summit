@@ -4,6 +4,7 @@ using System.Collections;
 public class BackpackUIManager : MonoBehaviour
 {
 	public System.Action ApplyButtonClicked;
+	public System.Action RemoveButtonClicked;
 
 	private static BackpackUIManager instance;
 	public static BackpackUIManager Instance 
@@ -20,5 +21,11 @@ public class BackpackUIManager : MonoBehaviour
 	{
 		if (null != ApplyButtonClicked)
 			ApplyButtonClicked();
+	}
+
+	public void OnRemoveButtonClicked()
+	{
+		if (null != RemoveButtonClicked)
+			RemoveButtonClicked();
 	}
 }
