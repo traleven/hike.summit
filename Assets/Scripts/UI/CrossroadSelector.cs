@@ -15,9 +15,9 @@ namespace Hike
 		{
 			this.crossroad = crossroad;
 
-			Debug.Log(string.Format("Set up crossroad of {0} treks", crossroad.Length));
 			dropdown.ClearOptions();
 			dropdown.AddOptions(crossroad.Select(trek => trek.name).ToList());
+			dropdown.value = 0;
 			dropdown.RefreshShownValue();
 		}
 
