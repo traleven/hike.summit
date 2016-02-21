@@ -35,10 +35,10 @@ namespace Hike
 			};
 		}
 
-		public Sprite GetGroundSprite (TrekInfo.TerrainType type)
+		public Sprite GetGroundSprite (TrekInfo.TerrainType type, int blockIdx)
 		{
 			Sprite[] sprites = groundSprites[(int)type];
-			return sprites[Random.Range (0, sprites.Length)];
+			return sprites[sprites.Length > 1 ? Mathf.Abs((int)(blockIdx / 1.58f)) % sprites.Length : 0];
 		}
 	}
 }

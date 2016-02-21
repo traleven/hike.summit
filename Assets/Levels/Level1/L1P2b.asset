@@ -22,7 +22,7 @@ MonoBehaviour:
       HumidityModifier: []
       SunModifier: []
     - Length: 2
-      Type: 2
+      Type: 4
       Slope: -45
       Windy: []
       TemperatureModifier: []

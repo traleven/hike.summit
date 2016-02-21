@@ -14,8 +14,8 @@ MonoBehaviour:
   Background: {fileID: 21300000, guid: 26e3e4a014fab4f8e882a9f502a688bd, type: 3}
   Blocks:
     blocks:
-    - Length: 1
-      Type: 1
+    - Length: 2
+      Type: 0
       Slope: 0
       Windy: []
       TemperatureModifier:
@@ -26,14 +26,14 @@ MonoBehaviour:
       HumidityModifier: []
       SunModifier: []
     - Length: 1
-      Type: 1
+      Type: 2
       Slope: 5
       Windy: []
       TemperatureModifier: []
       HumidityModifier: []
       SunModifier: []
     - Length: 1
-      Type: 2
+      Type: 4
       Slope: 30
       Windy: []
       TemperatureModifier: []

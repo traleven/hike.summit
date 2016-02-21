@@ -143,6 +143,10 @@ namespace Hike
 
 		}
 
+		public void TickWalking(float deltaTime)
+		{
+		}
+
 		public void UpdateStats ()
 		{
 			RecalculateDerivedStats ();

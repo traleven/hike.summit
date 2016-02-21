@@ -27,6 +27,7 @@ namespace Hike
 		[SerializeField] private GameManager gameManager = null;
 		[SerializeField] private SpriteRenderer spriteRenderer = null;
 		[SerializeField] private Window gameplayWindow = null;
+		[SerializeField] private StatsManager stats = null;
 
 		public void Reset(TrekInfo entryPoint)
 		{
@@ -66,6 +67,10 @@ namespace Hike
 			else if (CurrentBlockIdx < 0)
 			{
 				gameManager.SelectPath(CurrentTrek, CurrentTrek.CrossroadA);
+			}
+			else
+			{
+				stats.TickWalking(Timer.GameDeltaTime);
 			}
 		}
 	}

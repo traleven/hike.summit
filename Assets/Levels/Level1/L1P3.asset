@@ -22,14 +22,14 @@ MonoBehaviour:
       HumidityModifier: []
       SunModifier: []
     - Length: 2
-      Type: 1
+      Type: 2
       Slope: 0
       Windy: []
       TemperatureModifier: []
       HumidityModifier: []
       SunModifier: []
-    - Length: 1
-      Type: 2
+    - Length: 2
+      Type: 0
       Slope: 0
       Windy: []
       TemperatureModifier: []

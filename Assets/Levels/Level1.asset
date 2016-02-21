@@ -16,16 +16,17 @@ MonoBehaviour:
   ExitPoint: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
   Weather: {fileID: 11400000, guid: 15c63e7bc5bd84a88b880bf2d0f440b1, type: 2}
   defaultGroundSprites:
-  - {fileID: 21300000, guid: 53049e9b9bffe4ad39993edcf033dcf4, type: 3}
+  - {fileID: 21300000, guid: ea871cc1e1d71459ca4075ba6cdaaf96, type: 3}
   grassGroundSprites:
-  - {fileID: 21300000, guid: 96f46adfc45d54b8f889bfea54d8ee76, type: 3}
+  - {fileID: 21300000, guid: 0dd3584a54af54b699d7c6b84741a079, type: 3}
+  - {fileID: 21300000, guid: 2795084cb2c2143eca8de476a8a35540, type: 3}
   groundGroundSprites:
-  - {fileID: 21300000, guid: 53049e9b9bffe4ad39993edcf033dcf4, type: 3}
+  - {fileID: 21300000, guid: 401bd1ac4e3004941b987b9dfeea8fd8, type: 3}
   smallStonesGroundSprites:
-  - {fileID: 21300000, guid: 53049e9b9bffe4ad39993edcf033dcf4, type: 3}
+  - {fileID: 21300000, guid: 401bd1ac4e3004941b987b9dfeea8fd8, type: 3}
   bigStonesGroundSprites:
-  - {fileID: 21300000, guid: 53049e9b9bffe4ad39993edcf033dcf4, type: 3}
+  - {fileID: 21300000, guid: 2f9d040a8a4334c3fab1a82da29424c1, type: 3}
   snowGroundSprites:
-  - {fileID: 21300000, guid: b3b6ead1bcc6044518b8d1c4a476e68a, type: 3}
+  - {fileID: 21300000, guid: ccb1dbf64b03a446b8b48f3451a3a69f, type: 3}
   iceGroundSprites:
-  - {fileID: 21300000, guid: b3b6ead1bcc6044518b8d1c4a476e68a, type: 3}
+  - {fileID: 21300000, guid: ccb1dbf64b03a446b8b48f3451a3a69f, type: 3}

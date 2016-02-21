@@ -5,11 +5,11 @@ namespace Hike
 {
 	public class TrekBlock : MonoBehaviour
 	{
-		public const float BlockWidth = 8;
+		public const float BlockWidth = 4;
 		public Player Player;
 
 		private SpriteRenderer spriteRenderer;
-		private int blockIndex;
+		private int blockIndex = -1;
 		private TrekInfo.Block block;
 
 		public int BlockIndex
@@ -17,9 +17,12 @@ namespace Hike
 			get { return blockIndex; }
 			set
 			{
-				blockIndex = value;
-				block = Player.CurrentTrek.Blocks [value];
-				spriteRenderer.sprite = Player.CurrentLevel.GetGroundSprite( block.Type );
+				if (value != blockIndex)
+				{
+					blockIndex = value;
+					block = Player.CurrentTrek.Blocks [value];
+					spriteRenderer.sprite = Player.CurrentLevel.GetGroundSprite( block.Type, blockIndex );
+				}
 			}
 		}
 

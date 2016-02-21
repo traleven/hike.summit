@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11413602}
   - 212: {fileID: 21273818}
   - 114: {fileID: 11459670}
+  - 95: {fileID: 9522176}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -30,6 +31,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &9522176
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 557d188e2fe3c4995965d132f6fa3470, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11413602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -46,10 +64,11 @@ MonoBehaviour:
   TrekDirection: 0
   CurrentBlockIdx: 0
   InBlockPosition: 0
-  CurrentSpeed: 0.1
+  CurrentSpeed: 0.5
   gameManager: {fileID: 0}
   spriteRenderer: {fileID: 21273818}
   gameplayWindow: {fileID: 0}
+  stats: {fileID: 11459670}
 --- !u!114 &11459670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -87,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2092964839
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: e1e4fa197a10643bdafe6a9cb5a12467, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 875633141690a49919ce0d89346f5589, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
