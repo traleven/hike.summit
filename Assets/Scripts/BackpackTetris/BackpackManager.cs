@@ -62,7 +62,7 @@ public class BackpackManager : MonoBehaviour
 			items.Remove(hitItem);
 			GameObject.DestroyImmediate(hitItem.gameObject);
 		}
-		else if (!Backpack.HasExcessItems && !hitItem.IsInside())
+		else if (!Backpack.HasExcessItems && !hitItem.IsInside() && currentShape == null)
 		{
 			currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Item>();
 			currentShape.transform.position = Backpack.GetStartPosition();
