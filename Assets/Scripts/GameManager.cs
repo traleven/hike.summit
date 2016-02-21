@@ -21,8 +21,8 @@ namespace Hike
 
 		public void StartNewGame()
 		{
+			player.CurrentLevel = currentLevel;
 			player.Reset(currentLevel.EntryPoint);
-			player.enabled = true;
 			sideView.SetActive(true);
 			Timer.TimeMultiplier = 1f;
 		}
@@ -43,7 +43,7 @@ namespace Hike
 			sideView.SetActive(false);
 		}
 
-		public void SelectPath(TrekInfo trek, TrekInfo[] crossroad)
+		public void SelectPath(TrekInfo trek, TrekInfo.Crossroad[] crossroad)
 		{
 			if (trek == currentLevel.ExitPoint && crossroad == trek.CrossroadB)
 				StopGame();
@@ -59,7 +59,7 @@ namespace Hike
 	}
 
 	[Serializable]
-	public class CrossroadEvent : UnityEvent<TrekInfo[]>
+	public class CrossroadEvent : UnityEvent<TrekInfo.Crossroad[]>
 	{
 	}
 }

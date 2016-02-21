@@ -9,21 +9,21 @@ namespace Hike
 	{
 		[SerializeField] private Dropdown dropdown = null;
 
-		private TrekInfo[] crossroad;
+		private TrekInfo.Crossroad[] crossroad;
 
-		public void SetUp(TrekInfo[] crossroad)
+		public void SetUp(TrekInfo.Crossroad[] crossroad)
 		{
 			this.crossroad = crossroad;
 
 			dropdown.ClearOptions();
-			dropdown.AddOptions(crossroad.Select(trek => trek.name).ToList());
+			dropdown.AddOptions(crossroad.Select(route => route.RouteName).ToList());
 			dropdown.value = 0;
 			dropdown.RefreshShownValue();
 		}
 
 		public void ApplyTrek(Player player)
 		{
-			player.GoTo(crossroad[dropdown.value], player.TrekDirection);
+			player.GoTo(crossroad[dropdown.value].Trek, crossroad[dropdown.value].Direction);
 		}
 	}
 }

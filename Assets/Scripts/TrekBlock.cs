@@ -19,7 +19,7 @@ namespace Hike
 			{
 				blockIndex = value;
 				block = Player.CurrentTrek.Blocks [value];
-				spriteRenderer.sprite = Player.CurrentTrek.GetGroundSprite( block.Type );
+				spriteRenderer.sprite = Player.CurrentLevel.GetGroundSprite( block.Type );
 			}
 		}
 

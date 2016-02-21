@@ -35,17 +35,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 525132788040c42a3b954c72ec6700e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: {fileID: 0}
   CurrentTrek: {fileID: 0}
   TrekDirection: 0
   CurrentBlockIdx: 0
   InBlockPosition: 0
   CurrentSpeed: 0.1
   gameManager: {fileID: 0}
+  spriteRenderer: {fileID: 21273818}
 --- !u!212 &21273818
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ namespace Hike
 {
 	public class Player : MonoBehaviour
 	{
+		public LevelInfo CurrentLevel;
 		public TrekInfo CurrentTrek;
 		public int TrekDirection;
 		public int CurrentBlockIdx;
@@ -23,14 +24,12 @@ namespace Hike
 
 		public float CurrentSpeed;
 
-		[SerializeField] private GameManager gameManager;
+		[SerializeField] private GameManager gameManager = null;
+		[SerializeField] private SpriteRenderer spriteRenderer = null;
 
 		public void Reset(TrekInfo entryPoint)
 		{
-			CurrentTrek = entryPoint;
-			CurrentBlockIdx = 0;
-			TrekDirection = 1;
-			InBlockPosition = 0.5f;
+			GoTo(entryPoint, 1);
 		}
 
 		public void GoTo(TrekInfo trek, int direction)
@@ -43,6 +42,7 @@ namespace Hike
 
 		protected void Update()
 		{
+			spriteRenderer.flipX = TrekDirection < 0;
 			InBlockPosition += TrekDirection * CurrentSpeed * Timer.GameDeltaTime;
 
 			if (InBlockPosition > 1f)
