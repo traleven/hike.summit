@@ -20,9 +20,27 @@ public class Backpack : MonoBehaviour
 
 	private static Transform[,] cells;
 
+	private static SpriteRenderer[] borders;
+
+	private static bool hasExcessItems = false;
+	public static bool HasExcessItems
+	{
+		get { return hasExcessItems; }
+		set
+		{
+			hasExcessItems = value;
+			//FIXME some visual zalipon
+			foreach(var spr in borders)
+			{
+				spr.material.color = hasExcessItems ? Color.red : Color.white;
+			}
+		}
+	}
+
 	void Start()
 	{
 		cells = new Transform[width, height];
+		borders = GetComponentsInChildren<SpriteRenderer>();
 	}
 
 	public static Coordinate ConvertPositionToCoordinate(Vector2 position)
@@ -36,8 +54,9 @@ public class Backpack : MonoBehaviour
 			&& coord.y >= 0);
 	}
 
-	public static bool IsCompletelyInside(Coordinate coord)
+	public static bool IsCompletelyInside(Vector2 position)
 	{
+		Coordinate coord = ConvertPositionToCoordinate(position);
 		return IsInside(coord) && coord.y < height;
 	}
 
@@ -71,7 +90,7 @@ public class Backpack : MonoBehaviour
 		foreach (Transform child in shape.CellBlocks)
 		{
 			Coordinate coord = ConvertPositionToCoordinate(child.position);
-			if (IsCompletelyInside(coord))
+			if (IsCompletelyInside(child.position))
 				cells[coord.x, coord.y] = child;
 		}     
 	}

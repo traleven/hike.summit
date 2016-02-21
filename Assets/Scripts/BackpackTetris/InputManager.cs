@@ -3,39 +3,38 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour
 {
-	public Item currentShape = null;
 	public float FallingSpeed = 0.8f;
-
 	float lastMovementUpdate = 0;
+	private BackpackManager backpackManager;
+
+	void Start()
+	{
+		backpackManager = GetComponent<BackpackManager>();
+	}
+
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
+		if (Input.GetMouseButtonDown(0))
 		{
 			HandleClick();
 		}
 			
-		if (currentShape == null)
-			return;
-		
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
-			currentShape.Move(Vector3.left);
+			backpackManager.Move(BackpackManager.EMovementType.Left);
 		}
 		else if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
-			currentShape.Move(Vector3.right);
+			backpackManager.Move(BackpackManager.EMovementType.Right);
 		}
 		else if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
-			currentShape.Rotate();
+			backpackManager.Move(BackpackManager.EMovementType.Rotate);
 		}
 		else if (Input.GetKeyDown(KeyCode.DownArrow) ||
 			Time.time - lastMovementUpdate >= FallingSpeed)
 		{
-			if(!currentShape.Move(Vector3.down))
-			{
-				currentShape = null;
-			}
+			backpackManager.Move(BackpackManager.EMovementType.Down);
 			lastMovementUpdate = Time.time;
 		}
 	}
@@ -48,10 +47,9 @@ public class InputManager : MonoBehaviour
 		if (hit.collider != null)
 		{
 			GameObject hitGO = hit.collider.gameObject;
-			if (null != hitGO && null != hitGO.GetComponent<Item>() && currentShape == null)
+			if (null != hitGO && null != hitGO.GetComponent<Item>())
 			{
-				currentShape = (Object.Instantiate(hitGO) as GameObject).GetComponent<Item>();
-				currentShape.transform.position = Backpack.GetStartPosition();
+				backpackManager.HandleClick(hitGO);
 			}
 		}
 	}
