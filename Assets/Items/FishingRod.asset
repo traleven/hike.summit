@@ -15,3 +15,4 @@ MonoBehaviour:
   WeightKoeff: 0.1
   Weight: 4
   Amount: 1
+  Type: 1
