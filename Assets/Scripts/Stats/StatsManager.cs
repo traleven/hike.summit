@@ -158,6 +158,8 @@ namespace Hike
 
 		public void Reset()
 		{
+			Time = 0f;
+
 			Stamina = stamina.MaxValue;
 			FillFood = fillFood.MaxValue;
 			FillWater = fillWater.MaxValue;

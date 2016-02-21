@@ -15,8 +15,8 @@ public class Backpack : MonoBehaviour
 		}
 	}
 
-	public static int height = 10;
-	public static int width = 6;
+	public static int height = 6;
+	public static int width = 4;
 
 	private static Transform[,] cells;
 
