@@ -24,6 +24,7 @@ namespace Hike
 		public float CurrentSpeed;
 
 		[SerializeField] private GameManager gameManager;
+        [SerializeField] private StatsManager statsManager;
 
 		public void Reset(TrekInfo entryPoint)
 		{
@@ -56,6 +57,9 @@ namespace Hike
 			{
 				gameManager.SelectPath(CurrentTrek, CurrentTrek.CrossroadA);
 			}
+
+            if (null != statsManager)
+                statsManager.UpdateStats();
 		}
 	}
 }
