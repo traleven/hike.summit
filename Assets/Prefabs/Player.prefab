@@ -65,6 +65,7 @@ MonoBehaviour:
   CurrentBlockIdx: 0
   InBlockPosition: 0
   CurrentSpeed: 0.5
+  backScrollSpeed: 0.006
   gameManager: {fileID: 0}
   spriteRenderer: {fileID: 21273818}
   gameplayWindow: {fileID: 0}
@@ -214,7 +215,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: backScrollSpeed
+      value: 0.006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146818}
