@@ -24,6 +24,8 @@ namespace Hike
 
 		public float CurrentSpeed;
 
+        public float backScrollSpeed = 1f;
+
 		[SerializeField] private GameManager gameManager = null;
 		[SerializeField] private SpriteRenderer spriteRenderer = null;
 		[SerializeField] private Window gameplayWindow = null;
@@ -76,6 +78,10 @@ namespace Hike
 			{
 				stats.TickWalking(Timer.GameDeltaTime, this);
 			}
+
+            var backUVrect = BackgroundManager.Instance.ActiveBG.uvRect;
+            backUVrect.x += backScrollSpeed * Timer.GameDeltaTime;
+            BackgroundManager.Instance.ActiveBG.uvRect = backUVrect;
 		}
 	}
 }
