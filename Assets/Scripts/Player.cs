@@ -80,7 +80,7 @@ namespace Hike
 			}
 
             var backUVrect = BackgroundManager.Instance.ActiveBG.uvRect;
-            backUVrect.x += backScrollSpeed * Timer.GameDeltaTime;
+            backUVrect.x += backScrollSpeed * TrekDirection * CurrentSpeed * Timer.GameDeltaTime;
             BackgroundManager.Instance.ActiveBG.uvRect = backUVrect;
 		}
 	}
