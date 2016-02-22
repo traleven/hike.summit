@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapMarker: {fileID: 21300000, guid: c352dad359a2243e89f1e3f3c1c2d79e, type: 3}
   TrekMarker: {fileID: 21300000, guid: c218a964f4be445be8476f22f255bfb1, type: 3}
-  MarkerPosition: {x: 0, y: 0, z: 0}
+  MarkerPosition: {x: 98, y: -128}

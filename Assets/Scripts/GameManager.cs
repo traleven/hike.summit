@@ -12,6 +12,7 @@ namespace Hike
 		[SerializeField] private GameObject sideView;
 		[SerializeField] private Player player;
 		[SerializeField] private Camp camp;
+		[SerializeField] private CrossroadInfoEvent OnCrossroadInfo;
 		[SerializeField] private CrossroadEvent OnCrossroad;
 		[SerializeField] private UnityEvent OnGameOver;
 
@@ -54,6 +55,7 @@ namespace Hike
 			else
 			{
 				sideView.SetActive(false);
+				OnCrossroadInfo.Invoke(trek.CrossroadA == crossroad ? trek.CrossroadAInfo : trek.CrossroadBInfo);
 				OnCrossroad.Invoke(crossroad);
 			}
 		}
@@ -67,6 +69,11 @@ namespace Hike
 
 	[Serializable]
 	public class CrossroadEvent : UnityEvent<TrekInfo.Crossroad[]>
+	{
+	}
+
+	[Serializable]
+	public class CrossroadInfoEvent : UnityEvent<CrossroadInfo>
 	{
 	}
 }

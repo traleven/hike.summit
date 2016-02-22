@@ -8,6 +8,6 @@ namespace Hike
 	{
 		public Sprite MapMarker;
 		public Sprite TrekMarker;
-		public Vector3 MarkerPosition;
+		public Vector2 MarkerPosition;
 	}
 }
