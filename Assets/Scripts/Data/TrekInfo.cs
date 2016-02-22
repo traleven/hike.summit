@@ -11,8 +11,8 @@ namespace Hike
 		public Sprite Background;
 		public BlocksContainer Blocks;
 
-		public Sprite CrossroadASprite;
-		public Sprite CrossroadBSprite;
+		public CrossroadInfo CrossroadAInfo;
+		public CrossroadInfo CrossroadBInfo;
 
 		public Crossroad[] CrossroadA;
 		public Crossroad[] CrossroadB;

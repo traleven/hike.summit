@@ -21,40 +21,12 @@ MonoBehaviour:
       TemperatureModifier: 1
       HumidityModifier: 0
       SunModifier: 1
-    - Length: 4
-      Type: 2
-      Slope: 5
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 0
-      SunModifier: 1
-    - Length: 2
-      Type: 4
-      Slope: 30
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 1
-      SunModifier: 1
-    - Length: 3
-      Type: 5
-      Slope: 45
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 3
-      SunModifier: 1
-    - Length: 1
-      Type: 5
-      Slope: 0
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 3
-      SunModifier: 1
-  CrossroadASprite: {fileID: 21300000, guid: 8b08b46b591b243519f052df355f53d0, type: 3}
-  CrossroadBSprite: {fileID: 21300000, guid: c218a964f4be445be8476f22f255bfb1, type: 3}
+  CrossroadAInfo: {fileID: 11400000, guid: 0b55b939b3fc24ec48422b44b0398333, type: 2}
+  CrossroadBInfo: {fileID: 11400000, guid: c8e483513bef8415eb2d11309bb13ef9, type: 2}
   CrossroadA:
   - Trek: {fileID: 11400000}
     Direction: 1
-    RouteName: Red-Green
+    RouteName: Road
   CrossroadB:
   - Trek: {fileID: 11400000, guid: 3c92e0221207745efa45e8496adc3dea, type: 2}
     Direction: 1

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf375ae8594746b5afc5bbaed515f0d, type: 3}
+  m_Name: L1P5
+  m_EditorClassIdentifier: 
+  Background: {fileID: 0}
+  Blocks:
+    blocks:
+    - Length: 3
+      Type: 4
+      Slope: 0
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 1
+      SunModifier: 1
+  CrossroadAInfo: {fileID: 11400000, guid: f36176b0163b8462d82045ab69ad940f, type: 2}
+  CrossroadBInfo: {fileID: 11400000, guid: 53662df87d0174011b015a91d9d53050, type: 2}
+  CrossroadA:
+  - Trek: {fileID: 11400000, guid: 90261f83ca17242ae931281a349468dd, type: 2}
+    Direction: -1
+    RouteName: Red
+  - Trek: {fileID: 11400000, guid: dbcf3cba3283e4fe2b382086d9d920a9, type: 2}
+    Direction: -1
+    RouteName: Green
+  CrossroadB:
+  - Trek: {fileID: 11400000, guid: f1949d2beda2a4113b1159a940f297c7, type: 2}
+    Direction: 1
+    RouteName: Yellow

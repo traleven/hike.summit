@@ -176,15 +176,15 @@ namespace Hike
 
 		public void TickWalking(float deltaTime, Player player)
 		{
-			Time += deltaTime;
+			Time += 0.65f * deltaTime;
 
 			float slope = player.CurrentBlock.Slope * player.TrekDirection;
 			slope = 0.0025f * slope * slope + 0.05f * slope + 1f;
 			Stamina -= 0.5f * slope * deltaTime;
 
 			float sqrtSlope = Mathf.Sqrt(slope);
-			FillFood -= 0.5f * sqrtSlope * deltaTime;
-			FillWater -= 0.5f * sqrtSlope * player.CurrentBlock.SunModifier * deltaTime;
+			FillFood -= 0.25f * sqrtSlope * deltaTime;
+			FillWater -= 0.25f * sqrtSlope * player.CurrentBlock.SunModifier * deltaTime;
 
 			WetnessFeet += 0.3f * (player.CurrentBlock.HumidityModifier - 0.5f) * deltaTime;
 			WetnessBody += PlayerTemperature / 10 * deltaTime;
@@ -196,7 +196,7 @@ namespace Hike
 
 		public void TickCamping(float deltaTime, Player player)
 		{
-			Time += deltaTime;
+			Time += 0.65f * deltaTime;
 			Stamina += 0.5f * Mathf.Sqrt(FillFood) * Mathf.Sqrt(FillWater) * deltaTime;
 
 			FillFood -= 0.1f * deltaTime;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Level 1
   EntryPoint: {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
-  ExitPoint: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
+  ExitPoint: {fileID: 11400000, guid: f1949d2beda2a4113b1159a940f297c7, type: 2}
   Weather: {fileID: 11400000, guid: 15c63e7bc5bd84a88b880bf2d0f440b1, type: 2}
   defaultGroundSprites:
   - {fileID: 21300000, guid: ea871cc1e1d71459ca4075ba6cdaaf96, type: 3}

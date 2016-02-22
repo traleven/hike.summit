@@ -11,7 +11,7 @@ namespace Hike
 
 		protected void LateUpdate ()
 		{
-			Sprite s = end > 0 ? player.CurrentTrek.CrossroadBSprite : player.CurrentTrek.CrossroadASprite;
+			Sprite s = end > 0 ? player.CurrentTrek.CrossroadBInfo.TrekMarker : player.CurrentTrek.CrossroadAInfo.TrekMarker;
 			if (s != spriteRenderer.sprite)
 			{
 				spriteRenderer.sprite = s;

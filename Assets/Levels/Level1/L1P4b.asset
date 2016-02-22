@@ -9,69 +9,62 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: caf375ae8594746b5afc5bbaed515f0d, type: 3}
-  m_Name: L1P2b
+  m_Name: L1P4b
   m_EditorClassIdentifier: 
-  Background: {fileID: 21300000, guid: a7d56fe9abb334eeaadb4c3f559f088c, type: 3}
+  Background: {fileID: 0}
   Blocks:
     blocks:
-    - Length: 3
-      Type: 1
-      Slope: 5
+    - Length: 1
+      Type: 4
+      Slope: 0
       Windy: 0
       TemperatureModifier: 1
-      HumidityModifier: 3
+      HumidityModifier: 1
       SunModifier: 1
     - Length: 4
-      Type: 1
-      Slope: 10
+      Type: 4
+      Slope: -10
       Windy: 0
       TemperatureModifier: 1
       HumidityModifier: 1
       SunModifier: 1
     - Length: 5
-      Type: 1
-      Slope: 5
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 0.1
-      SunModifier: 1
-    - Length: 3
       Type: 2
-      Slope: 30
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 0.1
-      SunModifier: 1
-    - Length: 1
-      Type: 4
-      Slope: 30
+      Slope: 0
       Windy: 0
       TemperatureModifier: 1
       HumidityModifier: 1
       SunModifier: 1
     - Length: 3
-      Type: 5
+      Type: 4
+      Slope: 18
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 1
+      SunModifier: 1
+    - Length: 1
+      Type: 4
       Slope: 0
       Windy: 0
       TemperatureModifier: 1
-      HumidityModifier: 2
+      HumidityModifier: 1
       SunModifier: 1
-  CrossroadAInfo: {fileID: 11400000, guid: c8e483513bef8415eb2d11309bb13ef9, type: 2}
-  CrossroadBInfo: {fileID: 11400000, guid: eb3be2d3b931944c981b096cda63afad, type: 2}
+  CrossroadAInfo: {fileID: 11400000, guid: 3b0e570299d194576956eba3211a2271, type: 2}
+  CrossroadBInfo: {fileID: 11400000, guid: f36176b0163b8462d82045ab69ad940f, type: 2}
   CrossroadA:
-  - Trek: {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
-    Direction: -1
-    RouteName: Road
-  - Trek: {fileID: 11400000, guid: 3c92e0221207745efa45e8496adc3dea, type: 2}
-    Direction: 1
-    RouteName: Red
-  CrossroadB:
   - Trek: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
+    Direction: -1
+    RouteName: Red (Right)
+  - Trek: {fileID: 11400000, guid: 90261f83ca17242ae931281a349468dd, type: 2}
     Direction: 1
     RouteName: Red (Left)
   - Trek: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
-    Direction: 1
+    Direction: -1
     RouteName: Green
-  - Trek: {fileID: 11400000, guid: 3c92e0221207745efa45e8496adc3dea, type: 2}
+  CrossroadB:
+  - Trek: {fileID: 11400000, guid: 9eb9cf782e15242c8b7e735061ef470d, type: 2}
+    Direction: 1
+    RouteName: Red (Left)
+  - Trek: {fileID: 11400000, guid: 90261f83ca17242ae931281a349468dd, type: 2}
     Direction: -1
     RouteName: Red (Right)

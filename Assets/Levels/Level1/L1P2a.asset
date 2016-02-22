@@ -15,46 +15,70 @@ MonoBehaviour:
   Blocks:
     blocks:
     - Length: 2
-      Type: 5
-      Slope: -45
+      Type: 1
+      Slope: 0
       Windy: 0
       TemperatureModifier: 1
-      HumidityModifier: 3
+      HumidityModifier: 1
       SunModifier: 1
     - Length: 3
-      Type: 4
-      Slope: -15
+      Type: 1
+      Slope: 10
       Windy: 0
       TemperatureModifier: 1
       HumidityModifier: 1
       SunModifier: 1
     - Length: 2
-      Type: 1
-      Slope: -5
-      Windy: 0
-      TemperatureModifier: 1
-      HumidityModifier: 0
-      SunModifier: 1
-    - Length: 1
-      Type: 1
+      Type: 2
       Slope: 0
       Windy: 0
       TemperatureModifier: 1
       HumidityModifier: 0
       SunModifier: 1
-  CrossroadASprite: {fileID: 21300000, guid: c218a964f4be445be8476f22f255bfb1, type: 3}
-  CrossroadBSprite: {fileID: 21300000, guid: c218a964f4be445be8476f22f255bfb1, type: 3}
+    - Length: 2
+      Type: 2
+      Slope: 25
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 0
+      SunModifier: 1
+    - Length: 3
+      Type: 2
+      Slope: 35
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 0
+      SunModifier: 1
+    - Length: 1
+      Type: 4
+      Slope: 45
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 1.5
+      SunModifier: 1
+    - Length: 1
+      Type: 5
+      Slope: 0
+      Windy: 0
+      TemperatureModifier: 1
+      HumidityModifier: 3
+      SunModifier: 1
+  CrossroadAInfo: {fileID: 11400000, guid: c8e483513bef8415eb2d11309bb13ef9, type: 2}
+  CrossroadBInfo: {fileID: 11400000, guid: eb3be2d3b931944c981b096cda63afad, type: 2}
   CrossroadA:
   - Trek: {fileID: 11400000, guid: 8c5afe9c356a04ababd1466a6f3ecce4, type: 2}
     Direction: -1
-    RouteName: Red-Green
+    RouteName: Road
   - Trek: {fileID: 11400000, guid: 5e954a5df84754a7089d65133ebe2876, type: 2}
     Direction: 1
     RouteName: Green
   CrossroadB:
   - Trek: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
     Direction: 1
-    RouteName: Red-Green
+    RouteName: Red
+  - Trek: {fileID: 11400000, guid: 890bad2e9ef7b4485bc69a76a3344ef6, type: 2}
+    Direction: 1
+    RouteName: Green (Right)
   - Trek: {fileID: 11400000, guid: 5e954a5df84754a7089d65133ebe2876, type: 2}
     Direction: -1
-    RouteName: Green
+    RouteName: Green (Left)
