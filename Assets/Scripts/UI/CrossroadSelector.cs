@@ -19,7 +19,6 @@ namespace Hike
 			dropdown.AddOptions(crossroad.Select(route => route.RouteName).ToList());
 			dropdown.value = 0;
 			dropdown.RefreshShownValue();
-			//dropdown.template.GetComponent<CanvasRenderer>();
 		}
 
 		public void ApplyTrek(Player player)
