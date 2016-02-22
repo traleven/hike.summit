@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403256}
-  - 114: {fileID: 11413602}
   - 212: {fileID: 21273818}
+  - 114: {fileID: 11413602}
   - 114: {fileID: 11459670}
   - 95: {fileID: 9522176}
   m_Layer: 0
@@ -81,6 +81,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089eade4dfc90fc4087834f9d28dfcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnStatOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: StopGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  time:
+    MinValue: 0
+    MaxValue: 100
+    currentValue: 0
+    OnValueChanged:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: Hike.PlayerStatistic+ValueUpdateEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   stamina:
     MinValue: 0
     MaxValue: 100

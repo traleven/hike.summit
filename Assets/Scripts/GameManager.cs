@@ -11,6 +11,7 @@ namespace Hike
 
 		[SerializeField] private GameObject sideView;
 		[SerializeField] private Player player;
+		[SerializeField] private Camp camp;
 		[SerializeField] private CrossroadEvent OnCrossroad;
 		[SerializeField] private UnityEvent OnGameOver;
 
@@ -23,13 +24,15 @@ namespace Hike
 		{
 			player.CurrentLevel = currentLevel;
 			player.Reset(currentLevel.EntryPoint);
-			sideView.SetActive(true);
 			Timer.TimeMultiplier = 1f;
+			sideView.SetActive(true);
 		}
 
 		public void Resume()
 		{
 			sideView.SetActive(true);
+			player.gameObject.SetActive(true);
+			camp.gameObject.SetActive(false);
 		}
 
 		public void StopGame()
@@ -40,7 +43,8 @@ namespace Hike
 
 		public void Break()
 		{
-			sideView.SetActive(false);
+			player.gameObject.SetActive(false);
+			camp.gameObject.SetActive(true);
 		}
 
 		public void SelectPath(TrekInfo trek, TrekInfo.Crossroad[] crossroad)
@@ -48,7 +52,10 @@ namespace Hike
 			if (trek == currentLevel.ExitPoint && crossroad == trek.CrossroadB)
 				StopGame();
 			else
+			{
+				sideView.SetActive(false);
 				OnCrossroad.Invoke(crossroad);
+			}
 		}
 
 		public void SetTimeMultiplier(float multiplier)

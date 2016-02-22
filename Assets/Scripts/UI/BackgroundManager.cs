@@ -21,6 +21,9 @@ namespace Hike
 
 		public void SetBackground(Sprite bg)
 		{
+			if (bg == null || bg == layers[currentLayer].sprite)
+				return;
+
 			if (layers[currentLayer].sprite == null)
 			{
 				layers[currentLayer].sprite = bg;
